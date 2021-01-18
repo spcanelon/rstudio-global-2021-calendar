@@ -1,6 +1,8 @@
 # rstudio-global-2021-calendar
 Materials to create a calendar file from the [rstudio::global(2021) schedule](https://global.rstudio.com/student/all_events) online
 
+**Please feel free to improve and reshare!**
+
 ![RStudio Global Logo](rstudio-global-2021.jpg)
 
 ## Calendar file for all events: [all_events.ics](all_events.ics)
