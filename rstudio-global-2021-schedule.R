@@ -1,0 +1,141 @@
+## --------------------------------------------------------------------------------------------------
+library("tidyverse")
+library("rvest")
+library("janitor")
+library("robotstxt")
+
+
+## --------------------------------------------------------------------------------------------------
+get_robotstxt("https://global.rstudio.com/student/all_events")
+
+
+## --------------------------------------------------------------------------------------------------
+html_1 <- read_html("https://global.rstudio.com/student/all_events?page=1")
+
+
+## --------------------------------------------------------------------------------------------------
+# event tile
+title_1 <- html_1 %>%
+  html_nodes(".session__name") %>%
+  html_text() # specifies what format we want
+
+# double check if the information you want was saved
+title_1
+
+# dates
+datetime_1 <- html_1 %>%
+  html_nodes(".session__dates.session__dates--index") %>%
+  html_text()
+
+datetime_1
+
+
+## --------------------------------------------------------------------------------------------------
+# scraping event titles
+get_titles <- name <- function(page_number) {
+  Sys.sleep(2)
+  
+  link <- paste0("https://global.rstudio.com/student/all_events?page=", page_number)
+  
+  read_html(link) %>%
+  html_nodes(".session__name") %>%
+  html_text()  
+}
+
+# scraping event dates and times
+get_dates <- name <- function(page_number) {
+  Sys.sleep(2)
+  
+  link <- paste0("https://global.rstudio.com/student/all_events?page=", page_number)
+  
+  read_html(link) %>%
+  html_nodes(".session__dates.session__dates--index") %>%
+  html_text()  
+}
+
+
+## --------------------------------------------------------------------------------------------------
+get_titles(3)
+
+
+## --------------------------------------------------------------------------------------------------
+map(2:4, get_titles)
+
+# then check with the website to see if it matches
+
+
+## --------------------------------------------------------------------------------------------------
+titles_all <- map(1:7, get_titles) %>%
+  unlist()
+
+dates_all <- map(1:7, get_dates) %>%
+  unlist()
+
+
+## --------------------------------------------------------------------------------------------------
+schedule <- 
+  tibble(event_name = titles_all,
+         date_time = dates_all)
+
+schedule
+
+
+## --------------------------------------------------------------------------------------------------
+str_at <- "\\s+at\\s+"
+str_to <- "\\s+to\\s+"
+str_EST <- " EST"
+str_day <- "\\w+\\,\\s+"
+
+schedule_new_times <-
+schedule %>%
+  mutate(date = str_replace_all(date_time, pattern = str_to, "-"),
+         date = str_replace_all(date, str_EST, "")) %>%
+  tidyr::separate(date, sep = str_at, c("day_date", "time")) %>%
+  mutate(date = str_replace(day_date, pattern = str_day, ""),
+         date = lubridate::mdy(date)) %>%
+  mutate(date_time_new = str_c(date, time, sep = " ")) %>%
+  tidyr::separate(time, sep = "-", c("start_time", "end_time"))
+
+
+## --------------------------------------------------------------------------------------------------
+schedule_new <-
+schedule_new_times %>%
+  mutate(start_datetime = str_c(date, start_time, sep = " "),
+         end_datetime = str_c(date, end_time, sep = " ")) %>%
+  mutate(across(c(start_datetime, end_datetime), 
+                lubridate::ymd_hm)) %>%
+  mutate(start_datetime = lubridate::force_tz(start_datetime, tz = "EST"),
+         end_datetime = lubridate::force_tz(end_datetime, tz = "EST")) %>%
+  select(-c(date_time, day_date, date_time_new))
+
+
+write_csv(schedule_new, "schedule_new.csv")
+saveRDS(schedule_new, "schedule_new.Rds")
+
+
+## --------------------------------------------------------------------------------------------------
+library(calendar)
+
+# creating a function
+make_calendar <- function(event) {
+  calendar_full <- c(0)
+  
+  event_subset <- schedule_new[event, ]
+  
+  calendar_event <-
+  calendar::ic_event(start_time = event_subset$start_datetime,
+                     end_time = event_subset$end_datetime,
+                     summary = event_subset$event_name)
+  
+  return(calendar_event)
+}
+
+number_events <- length(schedule_new$event_name)
+
+# creating ics objects for all events
+events_all <- map(1:number_events, make_calendar) %>% 
+  bind_rows()
+
+# writing to .ics file
+calendar::ic_write(events_all, "all_events.ics")
+
