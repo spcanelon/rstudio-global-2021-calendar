@@ -140,6 +140,7 @@ schedule %>%
   tidyr::separate(time, sep = "-", c("start_time", "end_time"))
 ```
 
+
 # Parsing the date-time
 
 ```{r}
@@ -155,16 +156,31 @@ schedule_new_times %>%
   select(-c(date_time, day_date, date_time_new))
 
 # writing to CSV and RDS files ----
-write_csv(schedule_new, "schedule_new.csv")
-saveRDS(schedule_new, "schedule_new.Rds")
+write_csv(schedule_new, "schedule_new_EST.csv")
+saveRDS(schedule_new, "schedule_new_EST.Rds")
 ```
+
+# Select your timezone and convert to local time
+```{r}
+timezone <- Sys.timezone()
+
+schedule_new_timezone <- schedule_new %>%
+  mutate(start_datetime = lubridate::force_tzs(start_datetime, "EST", tzone_out = timezone),
+         end_datetime = lubridate::force_tzs(end_datetime, "EST", tzone_out = timezone))
+
+# writing to CSV and RDS files ----
+write_csv(schedule_new_timezone, "schedule_new_localtz.csv")
+saveRDS(schedule_new_timezone, "schedule_new_localtz.Rds")
+  
+```
+
 
 # Creating an .ics object
 
 ```{r}
 # creating a function ----
 make_calendar <- function(event) {
-  event_subset <- schedule_new[event, ]
+  event_subset <- schedule_new_timezone[event, ]
   
   calendar_event <-
   calendar::ic_event(start_time = event_subset$start_datetime,
@@ -174,14 +190,14 @@ make_calendar <- function(event) {
   return(calendar_event)
 }
 
-number_events <- length(schedule_new$event_name)
+number_events <- length(schedule_new_timezone$event_name)
 
 # creating ics objects for all events ----
 events_all <- map(1:number_events, make_calendar) %>% 
   bind_rows()
 
 # writing to .ics file ----
-calendar::ic_write(events_all, "all_events.ics")
+calendar::ic_write(events_all, "all_events_localtime.ics")
 ```
 
 # Saving as an R script
