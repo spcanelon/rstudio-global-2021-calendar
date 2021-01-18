@@ -1,28 +1,29 @@
-## --------------------------------------------------------------------------------------------------
-library("tidyverse")
-library("rvest")
-library("janitor")
-library("robotstxt")
+## -------------------------------------------------------------------------------
+# loading libraries ----
+library(tidyverse)
+library(rvest)
+library(robotstxt)
+library(calendar)
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
 get_robotstxt("https://global.rstudio.com/student/all_events")
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
 html_1 <- read_html("https://global.rstudio.com/student/all_events?page=1")
 
 
-## --------------------------------------------------------------------------------------------------
-# event tile
+## -------------------------------------------------------------------------------
+# event title ----
 title_1 <- html_1 %>%
   html_nodes(".session__name") %>%
   html_text() # specifies what format we want
 
-# double check if the information you want was saved
+# double check if the information you want was saved ----
 title_1
 
-# dates
+# dates ----
 datetime_1 <- html_1 %>%
   html_nodes(".session__dates.session__dates--index") %>%
   html_text()
@@ -30,8 +31,8 @@ datetime_1 <- html_1 %>%
 datetime_1
 
 
-## --------------------------------------------------------------------------------------------------
-# scraping event titles
+## -------------------------------------------------------------------------------
+# scraping event titles ----
 get_titles <- name <- function(page_number) {
   Sys.sleep(2)
   
@@ -42,7 +43,7 @@ get_titles <- name <- function(page_number) {
   html_text()  
 }
 
-# scraping event dates and times
+# scraping event dates and times ----
 get_dates <- name <- function(page_number) {
   Sys.sleep(2)
   
@@ -54,25 +55,28 @@ get_dates <- name <- function(page_number) {
 }
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
 get_titles(3)
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
 map(2:4, get_titles)
 
 # then check with the website to see if it matches
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
+# titles ----
 titles_all <- map(1:7, get_titles) %>%
   unlist()
 
+# dates ----
 dates_all <- map(1:7, get_dates) %>%
   unlist()
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
+# creating tibble from scrapes ----
 schedule <- 
   tibble(event_name = titles_all,
          date_time = dates_all)
@@ -80,12 +84,14 @@ schedule <-
 schedule
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
+# defining string patterns ----
 str_at <- "\\s+at\\s+"
 str_to <- "\\s+to\\s+"
 str_EST <- " EST"
 str_day <- "\\w+\\,\\s+"
 
+# wrangling the date-time strings ----
 schedule_new_times <-
 schedule %>%
   mutate(date = str_replace_all(date_time, pattern = str_to, "-"),
@@ -97,7 +103,8 @@ schedule %>%
   tidyr::separate(time, sep = "-", c("start_time", "end_time"))
 
 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------
+# wrangling the dates and times ----
 schedule_new <-
 schedule_new_times %>%
   mutate(start_datetime = str_c(date, start_time, sep = " "),
@@ -108,18 +115,14 @@ schedule_new_times %>%
          end_datetime = lubridate::force_tz(end_datetime, tz = "EST")) %>%
   select(-c(date_time, day_date, date_time_new))
 
-
+# writing to CSV and RDS files ----
 write_csv(schedule_new, "schedule_new.csv")
 saveRDS(schedule_new, "schedule_new.Rds")
 
 
-## --------------------------------------------------------------------------------------------------
-library(calendar)
-
-# creating a function
+## -------------------------------------------------------------------------------
+# creating a function ----
 make_calendar <- function(event) {
-  calendar_full <- c(0)
-  
   event_subset <- schedule_new[event, ]
   
   calendar_event <-
@@ -132,10 +135,14 @@ make_calendar <- function(event) {
 
 number_events <- length(schedule_new$event_name)
 
-# creating ics objects for all events
+# creating ics objects for all events ----
 events_all <- map(1:number_events, make_calendar) %>% 
   bind_rows()
 
-# writing to .ics file
+# writing to .ics file ----
 calendar::ic_write(events_all, "all_events.ics")
+
+
+## -------------------------------------------------------------------------------
+knitr::purl("rstudio-global-2021-schedule.Rmd")
 
