@@ -1,8 +1,7 @@
 # rstudio-global-2021-calendar
+Materials to create a calendar file from the [rstudio::global(2021) schedule](https://global.rstudio.com/student/all_events) online
 
 ![RStudio Global Logo](rstudio-global-2021.jpg)
-
-Materials to create calendar files from the [rstudio::global(2021) schedule](https://global.rstudio.com/student/all_events) online
 
 ## Calendar file for all events: [all_events.ics](all_events.ics)
 
@@ -10,3 +9,11 @@ Materials to create calendar files from the [rstudio::global(2021) schedule](htt
 
 ## R Markdown file: [rstudio-global-2021-schedule.Rmd](rstudio-global-2021-schedule.Rmd)
 
+### Packages used
+
+```
+install.package("tidyverse")
+install.package("rvest")
+install.package("robotstxt")
+install.package("calendar")
+```
