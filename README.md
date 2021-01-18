@@ -9,6 +9,8 @@ Materials to create a calendar file from the [rstudio::global(2021) schedule](ht
 
 ## R Markdown file: [rstudio-global-2021-schedule.Rmd](rstudio-global-2021-schedule.Rmd)
 
+## R Notebook: [rstudio-global-2021-schedule.nb.html](https://spcanelon.github.io/rstudio-global-2021-calendar/rstudio-global-2021-schedule.nb.html)
+
 ### Packages used
 
 ```
