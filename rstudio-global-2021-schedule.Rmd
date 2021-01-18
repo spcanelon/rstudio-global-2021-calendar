@@ -18,6 +18,7 @@ library(tidyverse)
 library(rvest)
 library(robotstxt)
 library(calendar)
+library(lubridate)
 ```
 
 # Checking if we can scrape the page
