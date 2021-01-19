@@ -1,5 +1,5 @@
 # rstudio-global-2021-calendar
-Materials to create a calendar file from the [rstudio::global(2021) schedule](https://global.rstudio.com/student/all_events) online
+Materials to create a calendar file by scraping the [rstudio::global(2021) schedule](https://global.rstudio.com/student/all_events) online
 
 **Please feel free to improve and reshare!**
 - Thank you [Kelsey Gonzalez](https://twitter.com/KelseyEGonzalez) for noticing [issue #1](https://github.com/spcanelon/rstudio-global-2021-calendar/issues/1) and [Natalia Morandeira](https://twitter.com/Nat_Mora_) for [fixing it](https://github.com/spcanelon/rstudio-global-2021-calendar/pull/2)!
@@ -23,3 +23,6 @@ install.package("robotstxt")
 install.package("calendar")
 install.package("lubridate")
 ```
+
+### If you don't want to scrape the data, you can build a calendar using a (corrected) [CSV shared by Hadley](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [schedule-from-organizers-fixed.csv](schedule-from-organizers-fixed.csv)
+- Fixed means it corrects 2020 in the dates to 2021
