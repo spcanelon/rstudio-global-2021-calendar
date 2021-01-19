@@ -11,7 +11,8 @@ Materials to create a calendar file by scraping the [rstudio::global(2021) sched
 ### GMT-3: [all_events_GMT-3.ics](all_events_GMT-3.ics)
 
 ## R script: [rstudio-global-2021-schedule.R](rstudio-global-2021-schedule.R)
-- If you encounter an error like the one below, see [this fix in lubridate issue #928](https://github.com/tidyverse/lubridate/issues/928#issuecomment-720058799)
+
+If you encounter an error like the one below, see [this fix in lubridate issue #928](https://github.com/tidyverse/lubridate/issues/928#issuecomment-720058799)
 ```
 Error: Problem with `mutate()` input `start_datetime`.
 x CCTZ: Unrecognized timezone: "America/New_York"
@@ -27,11 +28,11 @@ Run `rlang::last_error()` to see where the error occurred.
 
 ```
 install.package("tidyverse")
+install.package("lubridate")
 install.package("rvest")
 install.package("robotstxt")
 install.package("calendar")
-install.package("lubridate")
 ```
 
 ### If you don't want to scrape the data, you can build a calendar using a (corrected) [CSV shared by Hadley](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [schedule-from-organizers-fixed.csv](schedule-from-organizers-fixed.csv)
-- Fixed means it corrects 2020 in the dates to 2021
+- Corrected/fixed means it corrects 2020 in the dates to 2021
