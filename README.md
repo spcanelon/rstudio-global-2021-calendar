@@ -14,6 +14,8 @@ Big thanks to...
 ### EST: [all_events_EST.ics](all_events_EST.ics)
 ### GMT-3: [all_events_GMT-3.ics](all_events_GMT-3.ics)
 
+---
+
 ## R script: [rstudio-global-2021-schedule.R](rstudio-global-2021-schedule.R)
 
 If you encounter an error like the one below, see [this fix in lubridate issue #928](https://github.com/tidyverse/lubridate/issues/928#issuecomment-720058799)
@@ -37,6 +39,6 @@ install.package("rvest")
 install.package("robotstxt")
 install.package("calendar")
 ```
+---
 
-### If you don't want to scrape the data, you can build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): 
-### [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
+### If you don't want to scrape the data, you can build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20) at [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
