@@ -39,6 +39,9 @@ install.package("rvest")
 install.package("robotstxt")
 install.package("calendar")
 ```
+
+Code utilized in these materials was informed by an [R-Ladies Tunis workshop on web scraping](https://twitter.com/spcanelon/status/1351346112024752129?s=20) led by Riva Quiroga and Mohamed El Fodil Ihaddaden
+
 ---
 
 ### If you don't want to scrape the data, you can build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20) at [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
