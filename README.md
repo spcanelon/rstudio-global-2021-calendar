@@ -2,7 +2,11 @@
 Materials to create a calendar file by scraping the [rstudio::global(2021) schedule](https://global.rstudio.com/student/all_events) online
 
 **Please feel free to improve and reshare!**
-- Thank you [Kelsey Gonzalez](https://twitter.com/KelseyEGonzalez) for noticing [issue #1](https://github.com/spcanelon/rstudio-global-2021-calendar/issues/1) and [Natalia Morandeira](https://twitter.com/Nat_Mora_) for [fixing it](https://github.com/spcanelon/rstudio-global-2021-calendar/pull/2)!
+
+Big thanks to...
+- [Kelsey Gonzalez](https://twitter.com/KelseyEGonzalez) for noticing [issue #1](https://github.com/spcanelon/rstudio-global-2021-calendar/issues/1),
+- [Natalia Morandeira](https://twitter.com/Nat_Mora_) for fixing it [(PR #2)](https://github.com/spcanelon/rstudio-global-2021-calendar/pull/2), and
+- [Pao Corrales](https://twitter.com/PaobCorrales) for making additional corrections [(PR #3)](https://github.com/spcanelon/rstudio-global-2021-calendar/pull/3)!
 
 ![RStudio Global Logo](rstudio-global-2021.jpg)
 
