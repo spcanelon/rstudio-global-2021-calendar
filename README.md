@@ -33,11 +33,11 @@ Run `rlang::last_error()` to see where the error occurred.
 ### Packages used
 
 ```
-install.package("tidyverse")
-install.package("lubridate")
-install.package("rvest")
-install.package("robotstxt")
-install.package("calendar")
+install.packages("tidyverse")
+install.packages("lubridate")
+install.packages("rvest")
+install.packages("robotstxt")
+install.packages("calendar")
 ```
 
 Code utilized in these materials was informed by an [R-Ladies Tunis workshop on web scraping](https://twitter.com/spcanelon/status/1351346112024752129?s=20) led by Riva Quiroga and Mohamed El Fodil Ihaddaden
