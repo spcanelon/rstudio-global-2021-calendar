@@ -38,5 +38,4 @@ install.package("robotstxt")
 install.package("calendar")
 ```
 
-### If you don't want to scrape the data, you can build a calendar using a (corrected) [CSV shared by Hadley](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [schedule-from-organizers-fixed.csv](schedule-from-organizers-fixed.csv)
-- Corrected/fixed means it corrects 2020 in the dates to 2021
+### If you don't want to scrape the data, you can build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
