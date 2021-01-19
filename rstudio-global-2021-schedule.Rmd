@@ -1,9 +1,7 @@
 ---
 title: "rstudio::global(2021) Schedule"
 subtitle: "Events"
-author: 
-  - Silvia Canelón
-  - Natalia Morandeira
+author: Silvia Canelón & Natalia Morandeira
 output: 
   html_notebook:
     theme: flatly
