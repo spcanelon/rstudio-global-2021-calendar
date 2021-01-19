@@ -136,7 +136,7 @@ schedule %>%
          date = str_replace_all(date, str_EST, "")) %>%
   tidyr::separate(date, sep = str_at, c("day_date", "time")) %>%
   mutate(date = str_replace(day_date, pattern = str_day, ""),
-         date = lubridate::mdy(date)) %>%
+         date = lubridate::mdy(date, tz = "US/Eastern")) %>%
   mutate(date_time_new = str_c(date, time, sep = " ")) %>%
   tidyr::separate(time, sep = "-", c("start_time", "end_time"))
 ```
@@ -151,9 +151,7 @@ schedule_new_times %>%
   mutate(start_datetime = str_c(date, start_time, sep = " "),
          end_datetime = str_c(date, end_time, sep = " ")) %>%
   mutate(across(c(start_datetime, end_datetime), 
-                lubridate::ymd_hm)) %>%
-  mutate(start_datetime = lubridate::force_tz(start_datetime, tz = "EST"),
-         end_datetime = lubridate::force_tz(end_datetime, tz = "EST")) %>%
+                ~lubridate::ymd_hm(.x, tz = "US/Eastern"))) %>%
   select(-c(date_time, day_date, date_time_new))
 
 # writing to CSV and RDS files ----
@@ -166,8 +164,8 @@ saveRDS(schedule_new, "schedule_new_EST.Rds")
 timezone <- Sys.timezone()
 
 schedule_new_timezone <- schedule_new %>%
-  mutate(start_datetime = lubridate::force_tzs(start_datetime, "EST", tzone_out = timezone),
-         end_datetime = lubridate::force_tzs(end_datetime, "EST", tzone_out = timezone))
+  mutate(start_datetime = lubridate::with_tz(start_datetime, tzone = timezone),
+         end_datetime = lubridate::with_tz(end_datetime, tzone = timezone))
 
 # writing to CSV and RDS files ----
 write_csv(schedule_new_timezone, "schedule_new_localtz.csv")
