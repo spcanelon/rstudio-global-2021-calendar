@@ -45,9 +45,9 @@ Code utilized in these materials was informed by an [R-Ladies Tunis workshop on 
 
 ---
 
-### If you don't want to scrape the data, you can build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20) at [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
+### If you don't want to scrape the data, you can:
 
-OR
+1. Build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
 
-### You can use Garrick Aden-Buie's Shiny app: https://garrick-rstudio.shinyapps.io/rstudio-global-2021/
-- Source code for the app provided here: https://github.com/gadenbuie/rstudio-global-2021-calendar
+2. Use Garrick Aden-Buie's Shiny app: https://garrick-rstudio.shinyapps.io/rstudio-global-2021/
+<br>Source code for the app provided here: [gadenbuie/rstudio-global-2021-calendar](https://github.com/gadenbuie/rstudio-global-2021-calendar)
