@@ -38,4 +38,5 @@ install.package("robotstxt")
 install.package("calendar")
 ```
 
-### If you don't want to scrape the data, you can build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
+### If you don't want to scrape the data, you can build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): 
+### [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
