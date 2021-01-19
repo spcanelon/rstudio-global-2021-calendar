@@ -6,7 +6,9 @@ Materials to create a calendar file by scraping the [rstudio::global(2021) sched
 
 ![RStudio Global Logo](rstudio-global-2021.jpg)
 
-## Calendar file for all events (EST): [all_events.ics](all_events.ics)
+## Calendar files available for all events: 
+### EST: [all_events_EST.ics](all_events_EST.ics)
+### GMT-3: [all_events_GMT-3.ics](all_events_GMT-3.ics)
 
 ## R script: [rstudio-global-2021-schedule.R](rstudio-global-2021-schedule.R)
 
