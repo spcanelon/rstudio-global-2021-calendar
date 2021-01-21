@@ -1,18 +1,19 @@
 ---
-title: "rstudio::global(2021) Schedule"
-subtitle: "Events"
-author: Silvia Canelón, Natalia Morandeira, Pao Corrales
+title: "Scrape-Your-Own Calendar"
+subtitle: "[rstudio::global(2021) online schedule](https://global.rstudio.com/student/all_events)"
+author: Silvia Canelón, Natalia Morandeira & Pao Corrales
 output: 
   html_notebook:
     theme: flatly
     toc: true
     toc_float: true
+    highlight: pygments
   code_download: true
 ---
 
 # Setup
 
-```{r}
+```{r, warning=FALSE}
 # loading libraries --
 library(tidyverse)
 library(rvest)
@@ -207,7 +208,7 @@ calendar::ic_write(events_all,
 
 # Saving as an R script
 
-```{r}
+```{r, warning=FALSE}
 knitr::purl("rstudio-global-2021-calendar.Rmd")
 ```
 
