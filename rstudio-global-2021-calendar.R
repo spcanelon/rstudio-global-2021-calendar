@@ -1,45 +1,22 @@
----
-title: "rstudio::global(2021) Schedule"
-subtitle: "Events"
-author: Silvia Canelón, Natalia Morandeira, & Pao Corrales
-output: 
-  html_notebook:
-    theme: flatly
-    toc: true
-    toc_float: true
-  code_download: true
----
-
-# Setup
-
-```{r}
+## -------------------------------------------------------------------------
 # loading libraries --
 library(tidyverse)
 library(rvest)
 library(robotstxt)
 library(calendar)
 library(lubridate)
-```
+library(here)
 
-# Checking if we can scrape the page
 
-Check the page's terms of service first, and then verify with `{robotstxt}`
-
-```{r}
+## -------------------------------------------------------------------------
 get_robotstxt("https://global.rstudio.com/student/all_events")
-```
 
-# Getting the html
 
-Good to check if you can do it in one page, and _then_ if it works, scale.
-
-```{r}
+## -------------------------------------------------------------------------
 html_1 <- read_html("https://global.rstudio.com/student/all_events?page=1")
-```
 
-# Extracting information from tags
 
-```{r}
+## -------------------------------------------------------------------------
 # event title --
 title_1 <- html_1 %>%
   html_nodes(".session__name") %>%
@@ -54,11 +31,9 @@ datetime_1 <- html_1 %>%
   html_text()
 
 datetime_1
-```
 
-# Creating scraping functions
 
-```{r}
+## -------------------------------------------------------------------------
 # scraping event titles --
 get_titles <- name <- function(page_number) {
   Sys.sleep(2)
@@ -80,27 +55,19 @@ get_dates <- name <- function(page_number) {
   html_nodes(".session__dates.session__dates--index") %>%
   html_text()  
 }
-```
 
-# Testing the function
 
-```{r}
+## -------------------------------------------------------------------------
 get_titles(3)
-```
 
-# Iterating with the function
 
-This step will try out the `get_titles()` function on pages 2, 3, 4
-
-```{r}
+## -------------------------------------------------------------------------
 map(2:4, get_titles)
 
 # then check with the website to see if it matches
-```
 
-# Scraping all the pages
 
-```{r}
+## -------------------------------------------------------------------------
 # titles --
 titles_all <- map(1:7, get_titles) %>%
   unlist()
@@ -108,21 +75,18 @@ titles_all <- map(1:7, get_titles) %>%
 # dates --
 dates_all <- map(1:7, get_dates) %>%
   unlist()
-```
 
 
-```{r}
+## -------------------------------------------------------------------------
 # creating tibble from scrapes --
 schedule <- 
   tibble(event_name = titles_all,
          date_time = dates_all)
 
 schedule
-```
 
-# Cleaning the date-time column
 
-```{r}
+## -------------------------------------------------------------------------
 # defining string patterns --
 str_at <- "\\s+at\\s+"
 str_to <- "\\s+to\\s+"
@@ -139,12 +103,9 @@ schedule %>%
          date = lubridate::mdy(date, tz = "US/Eastern")) %>%
   mutate(date_time_new = str_c(date, time, sep = " ")) %>%
   tidyr::separate(time, sep = "-", c("start_time", "end_time"))
-```
 
 
-# Parsing the date-time
-
-```{r}
+## -------------------------------------------------------------------------
 # wrangling the dates and times --
 schedule_new <-
 schedule_new_times %>%
@@ -155,12 +116,13 @@ schedule_new_times %>%
   select(-c(date_time, day_date, date_time_new))
 
 # writing to CSV and RDS files --
-write_csv(schedule_new, "schedule_new_EST.csv")
-saveRDS(schedule_new, "schedule_new_EST.Rds")
-```
+write_csv(schedule_new, 
+          here("schedule-files", "schedule_new_EST.csv"))
+saveRDS(schedule_new, 
+        here("schedule-files", "schedule_new_EST.Rds"))
 
-# Select your timezone and convert to local time
-```{r}
+
+## -------------------------------------------------------------------------
 timezone <- Sys.timezone()
 
 schedule_new_timezone <- schedule_new %>%
@@ -168,15 +130,14 @@ schedule_new_timezone <- schedule_new %>%
          end_datetime = lubridate::with_tz(end_datetime, tzone = timezone))
 
 # writing to CSV and RDS files --
-write_csv(schedule_new_timezone, "schedule_new_localtz.csv")
-saveRDS(schedule_new_timezone, "schedule_new_localtz.Rds")
+write_csv(schedule_new_timezone, 
+          here("schedule-files", "schedule_new_localtz.csv"))
+saveRDS(schedule_new_timezone, 
+        here("schedule-files", "schedule_new_localtz.Rds"))
   
-```
 
 
-# Creating an .ics object
-
-```{r}
+## -------------------------------------------------------------------------
 # creating a function --
 make_calendar <- function(event) {
   event_subset <- schedule_new_timezone[event, ]
@@ -196,12 +157,10 @@ events_all <- map(1:number_events, make_calendar) %>%
   bind_rows()
 
 # writing to .ics file --
-calendar::ic_write(events_all, "all_events_localtime.ics")
-```
+calendar::ic_write(events_all,
+                   here("calendar-files-ics", "all_events_localtime.ics"))
 
-# Saving as an R script
 
-```{r}
-knitr::purl("rstudio-global-2021-schedule.Rmd")
-```
+## -------------------------------------------------------------------------
+knitr::purl("rstudio-global-2021-calendar.Rmd")
 

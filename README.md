@@ -1,4 +1,4 @@
-# rstudio-global-2021-calendar
+# Scrape-Your-Own rstudio::global(2021) calendar
 Materials to create a calendar file by scraping the [rstudio::global(2021) schedule](https://global.rstudio.com/student/all_events) online
 
 **Please feel free to improve and reshare!**
@@ -12,8 +12,8 @@ Big thanks to...
 ![RStudio Global Logo](rstudio-global-2021.jpg)
 
 ## Calendar files available for all events: 
-### EST: [all_events_EST.ics](all_events_EST.ics)
-### GMT-3: [all_events_GMT-3.ics](all_events_GMT-3.ics)
+### EST: [all_events_EST.ics](calendar-files-ics/all_events_EST.ics)
+### GMT-3: [all_events_GMT-3.ics](calendar-files-ics/all_events_GMT-3.ics)
 
 ---
 
@@ -27,9 +27,9 @@ x CCTZ: Unrecognized timezone: "America/New_York"
 Run `rlang::last_error()` to see where the error occurred.
 ```
 
-## R Markdown file: [rstudio-global-2021-schedule.Rmd](rstudio-global-2021-schedule.Rmd)
+## R Markdown file: [rstudio-global-2021-calendar.Rmd](rstudio-global-2021-schedule.Rmd)
 
-## R Notebook: [rstudio-global-2021-schedule.nb.html](https://spcanelon.github.io/rstudio-global-2021-calendar/rstudio-global-2021-schedule.nb.html)
+## R Notebook: [rstudio-global-2021-calendar.nb.html](https://spcanelon.github.io/rstudio-global-2021-calendar/rstudio-global-2021-calendar.nb.html)
 
 ### Packages used
 
@@ -39,6 +39,7 @@ install.packages("lubridate")
 install.packages("rvest")
 install.packages("robotstxt")
 install.packages("calendar")
+install.packages("here")
 ```
 
 Code utilized in these materials was informed by an [R-Ladies Tunis workshop on web scraping](https://twitter.com/spcanelon/status/1351346112024752129?s=20) led by Riva Quiroga and Mohamed El Fodil Ihaddaden
@@ -47,7 +48,7 @@ Code utilized in these materials was informed by an [R-Ladies Tunis workshop on 
 
 ### If you don't want to scrape the data, you can:
 
-1. Build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [rstd.io/global-2021-schedule](https://t.co/X6YxtHAWT5?amp=1)
+1. Build a calendar using a [CSV shared by RStudio](https://twitter.com/hadleywickham/status/1351298997483425792?s=20): [data/schedule-from-organizers.csv](data/schedule-from-organizers.csv)
 
 2. Use Garrick Aden-Buie's Shiny app: https://garrick-rstudio.shinyapps.io/rstudio-global-2021/
 <br>Source code for the app provided here: [gadenbuie/rstudio-global-2021-calendar](https://github.com/gadenbuie/rstudio-global-2021-calendar)

@@ -1,8 +1,4 @@
 event_name,start_time,end_time,date,start_datetime,end_datetime
-R in Pharma with ProCogia - Pharma X-Session,12:00 PM,3:00 PM,2021-01-19T05:00:00Z,2021-01-19T17:00:00Z,2021-01-19T20:00:00Z
-Powering Enterprise Analytics at Scale Using Teradata Vantage & RStudio - Teradata X-Session 1,4:00 PM,6:30 PM,2021-01-19T05:00:00Z,2021-01-19T21:00:00Z,2021-01-19T23:30:00Z
-Mastering Shiny with Appsilon: from Development to Deployment - Shiny X-Session,9:00 AM,11:05 AM,2021-01-20T05:00:00Z,2021-01-20T14:00:00Z,2021-01-20T16:05:00Z
-Powering Enterprise Analytics at Scale Using Teradata Vantage & RStudio - Teradata X-Session 2,4:00 PM,6:30 PM,2021-01-20T05:00:00Z,2021-01-20T21:00:00Z,2021-01-20T23:30:00Z
 Maintaining the house the tidyverse built - Session 1,11:00 AM,11:33 AM,2021-01-21T05:00:00Z,2021-01-21T16:00:00Z,2021-01-21T16:33:00Z
 Q&A: Hadley Wickham - Session 1,11:33 AM,12:18 PM,2021-01-21T05:00:00Z,2021-01-21T16:33:00Z,2021-01-21T17:18:00Z
 Accessible Data Science Beyond Visual Models: Non-Visual Interactions with R and RStudio Packages - Session 1,1:00 PM,1:19 PM,2021-01-21T05:00:00Z,2021-01-21T18:00:00Z,2021-01-21T18:19:00Z
@@ -10,24 +6,24 @@ Always look on the bright side of plots - Session 1,1:00 PM,1:21 PM,2021-01-21T0
 Bringing the Tidyverse to Python with Siuba - Session 1,1:00 PM,1:20 PM,2021-01-21T05:00:00Z,2021-01-21T18:00:00Z,2021-01-21T18:20:00Z
 "A New Paradigm for Multifigure, Coordinate-Based Plotting in R - Session 1",1:19 PM,1:33 PM,2021-01-21T05:00:00Z,2021-01-21T18:19:00Z,2021-01-21T18:33:00Z
 R & Python: Going Steady - Session 1,1:19 PM,1:34 PM,2021-01-21T05:00:00Z,2021-01-21T18:19:00Z,2021-01-21T18:34:00Z
-Starting an R Book Club: Cooking Up Friendships in Isolation - Session 1,1:21 PM,1:21 PM,2021-01-21T05:00:00Z,2021-01-21T18:21:00Z,2021-01-21T18:21:00Z
+Starting an R Book Club: Cooking Up Friendships in Isolation - Session 1,1:21 PM,1:28 PM,2021-01-21T05:00:00Z,2021-01-21T18:21:00Z,2021-01-21T18:28:00Z
 Discussion: Learning 1 - Session 1,1:29 PM,1:59 PM,2021-01-21T05:00:00Z,2021-01-21T18:29:00Z,2021-01-21T18:59:00Z
 Discussion: Visualisation 1 - Session 1,1:33 PM,1:59 PM,2021-01-21T05:00:00Z,2021-01-21T18:33:00Z,2021-01-21T18:59:00Z
 Discussion: Language interop 1 - Session 1,1:34 PM,1:59 PM,2021-01-21T05:00:00Z,2021-01-21T18:34:00Z,2021-01-21T18:59:00Z
 Art Lessons: One Year as RStudio’s Artist-in-Residence - Session 1,2:00 PM,2:19 PM,2021-01-21T05:00:00Z,2021-01-21T19:00:00Z,2021-01-21T19:19:00Z
 Using pins with Python and JavaScript - Session 1,2:00 PM,2:19 PM,2021-01-21T05:00:00Z,2021-01-21T19:00:00Z,2021-01-21T19:19:00Z
 Trial and Error in Data Viz at the ACLU - Session 1,2:00 PM,2:16 PM,2021-01-21T05:00:00Z,2021-01-21T19:00:00Z,2021-01-21T19:16:00Z
-Racial Equity Dashboard: Unpacking Systemic Inequity - Session 1,2:16 PM,2:21 PM,2021-01-21T05:00:00Z,2021-01-21T19:16:00Z,2021-01-21T19:21:00Z
+Racial Equity Dashboard: Unpacking Systemic Inequity - Session 1,2:16 PM,2:20 PM,2021-01-21T05:00:00Z,2021-01-21T19:16:00Z,2021-01-21T19:20:00Z
 The dynamic duo: SQL & R - Session 1,2:19 PM,2:36 PM,2021-01-21T05:00:00Z,2021-01-21T19:19:00Z,2021-01-21T19:36:00Z
 Aesthetically automated figure production - Session 1,2:19 PM,2:39 PM,2021-01-21T05:00:00Z,2021-01-21T19:19:00Z,2021-01-21T19:39:00Z
-Your R is My R too:  Reflections on creating the Mi-R community - Session 1,2:20 PM,2:25 PM,2021-01-21T05:00:00Z,2021-01-21T19:20:00Z,2021-01-21T19:25:00Z
+Your R is My R too:  Reflections on creating the Mi-R community - Session 1,2:20 PM,2:24 PM,2021-01-21T05:00:00Z,2021-01-21T19:20:00Z,2021-01-21T19:24:00Z
 An easy and friendly way to build your multilingual website - Session 1,2:25 PM,2:30 PM,2021-01-21T05:00:00Z,2021-01-21T19:25:00Z,2021-01-21T19:30:00Z
-Making .pot-ery with R: Translations in R Packages - Session 1,2:30 PM,2:35 PM,2021-01-21T05:00:00Z,2021-01-21T19:30:00Z,2021-01-21T19:35:00Z
-Discussion: Visualisation 2 - Session 1,2:34 PM,2:59 PM,2021-01-21T05:00:00Z,2021-01-21T19:34:00Z,2021-01-21T19:59:00Z
+Making .pot-ery with R: Translations in R Packages - Session 1,2:30 PM,2:34 PM,2021-01-21T05:00:00Z,2021-01-21T19:30:00Z,2021-01-21T19:34:00Z
+Discussion: Visualisation 2 - Session 1,2:35 PM,2:59 PM,2021-01-21T05:00:00Z,2021-01-21T19:35:00Z,2021-01-21T19:59:00Z
 Discussion: Language interop 2 - Session 1,2:37 PM,2:59 PM,2021-01-21T05:00:00Z,2021-01-21T19:37:00Z,2021-01-21T19:59:00Z
 Discussion: Learning 2 - Session 1,2:38 PM,2:58 PM,2021-01-21T05:00:00Z,2021-01-21T19:38:00Z,2021-01-21T19:58:00Z
-Reporting on and visualising the pandemic - Session 1,3:00 PM,3:40 PM,2021-01-21T05:00:00Z,2021-01-21T20:00:00Z,2021-01-21T20:40:00Z
-Q&A: John Burn-Murdoch - Session 1,3:40 PM,4:20 PM,2021-01-21T05:00:00Z,2021-01-21T20:40:00Z,2021-01-21T21:20:00Z
+Reporting on and visualising the pandemic - Session 1,3:00 PM,3:50 PM,2021-01-21T05:00:00Z,2021-01-21T20:00:00Z,2021-01-21T20:50:00Z
+Q&A: John Burn-Murdoch - Session 1,3:50 PM,4:19 PM,2021-01-21T05:00:00Z,2021-01-21T20:50:00Z,2021-01-21T21:19:00Z
 oRganization: How to make internal R packages part of your team - Session 1,5:00 PM,5:19 PM,2021-01-21T05:00:00Z,2021-01-21T22:00:00Z,2021-01-21T22:19:00Z
 Making the jump from learning to applying: R training and documentation for different levels of expertise - Session 1,5:00 PM,5:22 PM,2021-01-21T05:00:00Z,2021-01-21T22:00:00Z,2021-01-21T22:22:00Z
 What's new in tidymodels? - Session 1,5:00 PM,5:16 PM,2021-01-21T05:00:00Z,2021-01-21T22:00:00Z,2021-01-21T22:16:00Z
@@ -40,20 +36,20 @@ Discussion: Teaching 1 - Session 1,5:39 PM,5:59 PM,2021-01-21T05:00:00Z,2021-01-
 "Fairness and Data Science: Failures, Factors, and Futures - Session 1",6:00 PM,6:23 PM,2021-01-21T05:00:00Z,2021-01-21T23:00:00Z,2021-01-21T23:23:00Z
 Monitoring health and impact of open-source projects - Session 1,6:00 PM,6:20 PM,2021-01-21T05:00:00Z,2021-01-21T23:00:00Z,2021-01-21T23:20:00Z
 Feedback at scale - Session 1,6:00 PM,6:20 PM,2021-01-21T05:00:00Z,2021-01-21T23:00:00Z,2021-01-21T23:20:00Z
-Make a package - Make some friends - Session 1,6:20 PM,6:24 PM,2021-01-21T05:00:00Z,2021-01-21T23:20:00Z,2021-01-21T23:24:00Z
-"How to do things with words: learning to program in R with a ""communicative approach"" - Session 1",6:20 PM,6:40 PM,2021-01-21T05:00:00Z,2021-01-21T23:20:00Z,2021-01-21T23:40:00Z
+Make a package - Make some friends - Session 1,6:20 PM,6:25 PM,2021-01-21T05:00:00Z,2021-01-21T23:20:00Z,2021-01-21T23:25:00Z
+"How to do things with words: learning to program in R with a ""communicative approach"" - Session 1",6:20 PM,6:37 PM,2021-01-21T05:00:00Z,2021-01-21T23:20:00Z,2021-01-21T23:37:00Z
 "tidymodels/stacks, Or, In Preparation for Pesto: A Grammar for Stacked Ensemble Modeling - Session 1",6:23 PM,6:27 PM,2021-01-21T05:00:00Z,2021-01-21T23:23:00Z,2021-01-21T23:27:00Z
-Using formr to create R-powered surveys with individualized feedback - Session 1,6:25 PM,6:29 PM,2021-01-21T05:00:00Z,2021-01-21T23:25:00Z,2021-01-21T23:29:00Z
-Using Guided Simulation Exercises to Teach Data Science with R - Session 1,6:27 PM,6:31 PM,2021-01-21T05:00:00Z,2021-01-21T23:27:00Z,2021-01-21T23:31:00Z
-Towards an integrated {verse}: lessons learned developing a library of validated packages - Session 1,6:30 PM,6:34 PM,2021-01-21T05:00:00Z,2021-01-21T23:30:00Z,2021-01-21T23:34:00Z
-How I became a Data Composer – examples of simulated datasets that bring value to a data-driven company - Session 1,6:32 PM,6:36 PM,2021-01-21T05:00:00Z,2021-01-21T23:32:00Z,2021-01-21T23:36:00Z
-The Power of Great Datasets - Session 1,6:35 PM,6:39 PM,2021-01-21T05:00:00Z,2021-01-21T23:35:00Z,2021-01-21T23:39:00Z
-Categorical Embeddings: New Ways to Simplify Complex Data - Session 1,6:37 PM,6:41 PM,2021-01-21T05:00:00Z,2021-01-21T23:37:00Z,2021-01-21T23:41:00Z
-Discussion: Teaching 2 - Session 1,6:40 PM,7:00 PM,2021-01-21T05:00:00Z,2021-01-21T23:40:00Z,2021-01-22T00:00:00Z
-Discussion: Package dev 2 - Session 1,6:40 PM,6:40 PM,2021-01-21T05:00:00Z,2021-01-21T23:40:00Z,2021-01-21T23:40:00Z
-Discussion: Modelling 2 - Session 1,6:42 PM,6:59 PM,2021-01-21T05:00:00Z,2021-01-21T23:42:00Z,2021-01-21T23:59:00Z
-Your Public Garden - Session 1,7:00 PM,7:40 PM,2021-01-21T05:00:00Z,2021-01-22T00:00:00Z,2021-01-22T00:40:00Z
-Q&A: Vicki Boykis - Session 1,7:40 PM,8:20 PM,2021-01-21T05:00:00Z,2021-01-22T00:40:00Z,2021-01-22T01:20:00Z
+Using formr to create R-powered surveys with individualized feedback - Session 1,6:25 PM,6:30 PM,2021-01-21T05:00:00Z,2021-01-21T23:25:00Z,2021-01-21T23:30:00Z
+Using Guided Simulation Exercises to Teach Data Science with R - Session 1,6:28 PM,6:33 PM,2021-01-21T05:00:00Z,2021-01-21T23:28:00Z,2021-01-21T23:33:00Z
+Towards an integrated {verse}: lessons learned developing a library of validated packages - Session 1,6:30 PM,6:35 PM,2021-01-21T05:00:00Z,2021-01-21T23:30:00Z,2021-01-21T23:35:00Z
+How I became a Data Composer – examples of simulated datasets that bring value to a data-driven company - Session 1,6:33 PM,6:38 PM,2021-01-21T05:00:00Z,2021-01-21T23:33:00Z,2021-01-21T23:38:00Z
+The Power of Great Datasets - Session 1,6:35 PM,6:40 PM,2021-01-21T05:00:00Z,2021-01-21T23:35:00Z,2021-01-21T23:40:00Z
+Discussion: Teaching 2 - Session 1,6:37 PM,6:59 PM,2021-01-21T05:00:00Z,2021-01-21T23:37:00Z,2021-01-21T23:59:00Z
+Categorical Embeddings: New Ways to Simplify Complex Data - Session 1,6:38 PM,6:42 PM,2021-01-21T05:00:00Z,2021-01-21T23:38:00Z,2021-01-21T23:42:00Z
+Discussion: Package dev 2 - Session 1,6:40 PM,6:59 PM,2021-01-21T05:00:00Z,2021-01-21T23:40:00Z,2021-01-21T23:59:00Z
+Discussion: Modelling 2 - Session 1,6:43 PM,6:59 PM,2021-01-21T05:00:00Z,2021-01-21T23:43:00Z,2021-01-21T23:59:00Z
+Your Public Garden - Session 1,7:00 PM,7:24 PM,2021-01-21T05:00:00Z,2021-01-22T00:00:00Z,2021-01-22T00:24:00Z
+Q&A: Vicki Boykis - Session 1,7:24 PM,8:19 PM,2021-01-21T05:00:00Z,2021-01-22T00:24:00Z,2021-01-22T01:19:00Z
 Introducing xrprof: A New Way to Profile R - Session 1,9:00 PM,9:18 PM,2021-01-21T05:00:00Z,2021-01-22T02:00:00Z,2021-01-22T02:18:00Z
 The Opioid Files: Turning big pharmacy data over to the public - Session 1,9:00 PM,9:18 PM,2021-01-21T05:00:00Z,2021-01-22T02:00:00Z,2021-01-22T02:18:00Z
 Not The App We Deserve. The App We Need: Putting a GMP Shiny App into Production - Session 1,9:00 PM,9:20 PM,2021-01-21T05:00:00Z,2021-01-22T02:00:00Z,2021-01-22T02:20:00Z
@@ -62,21 +58,21 @@ rKenyaCensus Package - Session 1,9:18 PM,9:28 PM,2021-01-21T05:00:00Z,2021-01-22
 How we made the switch: a case study on automating a complex report. - Session 1,9:20 PM,9:32 PM,2021-01-21T05:00:00Z,2021-01-22T02:20:00Z,2021-01-22T02:32:00Z
 Making Shiny apps faster with caching - Session 1,9:26 PM,9:31 PM,2021-01-21T05:00:00Z,2021-01-22T02:26:00Z,2021-01-22T02:31:00Z
 Discussion: Data for good 1 - Session 1,9:29 PM,9:59 PM,2021-01-21T05:00:00Z,2021-01-22T02:29:00Z,2021-01-22T02:59:00Z
-Discussion: Programming 1 - Session 1,9:31 PM,9:31 PM,2021-01-21T05:00:00Z,2021-01-22T02:31:00Z,2021-01-22T02:31:00Z
+Discussion: Programming 1 - Session 1,9:31 PM,9:59 PM,2021-01-21T05:00:00Z,2021-01-22T02:31:00Z,2021-01-22T02:59:00Z
 Discussion: Organisational tooling 1 - Session 1,9:33 PM,9:59 PM,2021-01-21T05:00:00Z,2021-01-22T02:33:00Z,2021-01-22T02:59:00Z
-Humanitarian Data Science with R - Session 1,10:00 PM,10:20 PM,2021-01-21T05:00:00Z,2021-01-22T03:00:00Z,2021-01-22T03:20:00Z
+Humanitarian Data Science with R - Session 1,10:00 PM,10:19 PM,2021-01-21T05:00:00Z,2021-01-22T03:00:00Z,2021-01-22T03:19:00Z
 Bigger Data With Ease Using Apache Arrow - Session 1,10:00 PM,10:19 PM,2021-01-21T05:00:00Z,2021-01-22T03:00:00Z,2021-01-22T03:19:00Z
 From Zero to Hero: Best practices for setting up Rstudio Team in the Cloud - Session 1,10:00 PM,10:17 PM,2021-01-21T05:00:00Z,2021-01-22T03:00:00Z,2021-01-22T03:17:00Z
 How reproducible am I? A retrospective on a year of commercial data science projects in R - Session 1,10:17 PM,10:21 PM,2021-01-21T05:00:00Z,2021-01-22T03:17:00Z,2021-01-22T03:21:00Z
+Cognitive speed: How the Tidyverse helped the British Red Cross respond quickly to COVID-19 - Session 1,10:19 PM,10:31 PM,2021-01-21T05:00:00Z,2021-01-22T03:19:00Z,2021-01-22T03:31:00Z
 Easy larger-than-RAM data manipulation with {disk.frame} - Session 1,10:19 PM,10:23 PM,2021-01-21T05:00:00Z,2021-01-22T03:19:00Z,2021-01-22T03:23:00Z
-Cognitive speed: How the Tidyverse helped the British Red Cross respond quickly to COVID-19 - Session 1,10:20 PM,10:32 PM,2021-01-21T05:00:00Z,2021-01-22T03:20:00Z,2021-01-22T03:32:00Z
-Lifelong Learning with R Weekly - Session 1,10:21 PM,10:26 PM,2021-01-21T05:00:00Z,2021-01-22T03:21:00Z,2021-01-22T03:26:00Z
+Lifelong Learning with R Weekly - Session 1,10:22 PM,10:26 PM,2021-01-21T05:00:00Z,2021-01-22T03:22:00Z,2021-01-22T03:26:00Z
 xaringan Playground: Using xaringan to learn web development - Session 1,10:24 PM,10:28 PM,2021-01-21T05:00:00Z,2021-01-22T03:24:00Z,2021-01-22T03:28:00Z
-Custom theming in Shiny & R Markdown with bslib & thematic - Session 1,10:26 PM,10:30 PM,2021-01-21T05:00:00Z,2021-01-22T03:26:00Z,2021-01-22T03:30:00Z
+Custom theming in Shiny & R Markdown with bslib & thematic - Session 1,10:26 PM,10:31 PM,2021-01-21T05:00:00Z,2021-01-22T03:26:00Z,2021-01-22T03:31:00Z
 parsermd - parsing R Markdown for fun and profit - Session 1,10:29 PM,10:34 PM,2021-01-21T05:00:00Z,2021-01-22T03:29:00Z,2021-01-22T03:34:00Z
-How Content Makes the Data Go 'Round - Session 1,10:31 PM,10:35 PM,2021-01-21T05:00:00Z,2021-01-22T03:31:00Z,2021-01-22T03:35:00Z
-Discussion: Data for good 2 - Session 1,10:32 PM,10:59 PM,2021-01-21T05:00:00Z,2021-01-22T03:32:00Z,2021-01-22T03:59:00Z
-Designing Randomized Studies using Shiny - Session 1,10:34 PM,10:38 PM,2021-01-21T05:00:00Z,2021-01-22T03:34:00Z,2021-01-22T03:38:00Z
+How Content Makes the Data Go 'Round - Session 1,10:31 PM,10:36 PM,2021-01-21T05:00:00Z,2021-01-22T03:31:00Z,2021-01-22T03:36:00Z
+Discussion: Data for good 2 - Session 1,10:31 PM,10:59 PM,2021-01-21T05:00:00Z,2021-01-22T03:31:00Z,2021-01-22T03:59:00Z
+Designing Randomized Studies using Shiny - Session 1,10:34 PM,10:39 PM,2021-01-21T05:00:00Z,2021-01-22T03:34:00Z,2021-01-22T03:39:00Z
 Discussion: Organisational tooling 2 - Session 1,10:36 PM,10:59 PM,2021-01-21T05:00:00Z,2021-01-22T03:36:00Z,2021-01-22T03:59:00Z
 Discussion: Programming 2 - Session 1,10:39 PM,10:59 PM,2021-01-21T05:00:00Z,2021-01-22T03:39:00Z,2021-01-22T03:59:00Z
 Maintaining the house the tidyverse built - Session 2,11:00 PM,11:33 PM,2021-01-21T05:00:00Z,2021-01-22T04:00:00Z,2021-01-22T04:33:00Z
@@ -86,24 +82,24 @@ Always look on the bright side of plots - Session 2,1:00 AM,1:21 AM,2021-01-22T0
 Bringing the Tidyverse to Python with Siuba - Session 2,1:00 AM,1:20 AM,2021-01-22T05:00:00Z,2021-01-22T06:00:00Z,2021-01-22T06:20:00Z
 "A New Paradigm for Multifigure, Coordinate-Based Plotting in R - Session 2",1:19 AM,1:33 AM,2021-01-22T05:00:00Z,2021-01-22T06:19:00Z,2021-01-22T06:33:00Z
 R & Python: Going Steady - Session 2,1:19 AM,1:34 AM,2021-01-22T05:00:00Z,2021-01-22T06:19:00Z,2021-01-22T06:34:00Z
-Starting an R Book Club: Cooking Up Friendships in Isolation - Session 2,1:21 AM,1:21 AM,2021-01-22T05:00:00Z,2021-01-22T06:21:00Z,2021-01-22T06:21:00Z
+Starting an R Book Club: Cooking Up Friendships in Isolation - Session 2,1:21 AM,1:28 AM,2021-01-22T05:00:00Z,2021-01-22T06:21:00Z,2021-01-22T06:28:00Z
 Discussion: Learning 1 - Session 2,1:29 AM,1:59 AM,2021-01-22T05:00:00Z,2021-01-22T06:29:00Z,2021-01-22T06:59:00Z
 Discussion: Visualisation 1 - Session 2,1:33 AM,1:59 AM,2021-01-22T05:00:00Z,2021-01-22T06:33:00Z,2021-01-22T06:59:00Z
 Discussion: Language interop 1 - Session 2,1:34 AM,1:59 AM,2021-01-22T05:00:00Z,2021-01-22T06:34:00Z,2021-01-22T06:59:00Z
 Art Lessons: One Year as RStudio’s Artist-in-Residence - Session 2,2:00 AM,2:19 AM,2021-01-22T05:00:00Z,2021-01-22T07:00:00Z,2021-01-22T07:19:00Z
 Using pins with Python and JavaScript - Session 2,2:00 AM,2:19 AM,2021-01-22T05:00:00Z,2021-01-22T07:00:00Z,2021-01-22T07:19:00Z
 Trial and Error in Data Viz at the ACLU - Session 2,2:00 AM,2:16 AM,2021-01-22T05:00:00Z,2021-01-22T07:00:00Z,2021-01-22T07:16:00Z
-Racial Equity Dashboard: Unpacking Systemic Inequity - Session 2,2:16 AM,2:21 AM,2021-01-22T05:00:00Z,2021-01-22T07:16:00Z,2021-01-22T07:21:00Z
+Racial Equity Dashboard: Unpacking Systemic Inequity - Session 2,2:16 AM,2:20 AM,2021-01-22T05:00:00Z,2021-01-22T07:16:00Z,2021-01-22T07:20:00Z
 The dynamic duo: SQL & R - Session 2,2:19 AM,2:36 AM,2021-01-22T05:00:00Z,2021-01-22T07:19:00Z,2021-01-22T07:36:00Z
 Aesthetically automated figure production - Session 2,2:19 AM,2:39 AM,2021-01-22T05:00:00Z,2021-01-22T07:19:00Z,2021-01-22T07:39:00Z
-Your R is My R too:  Reflections on creating the Mi-R community - Session 2,2:20 AM,2:25 AM,2021-01-22T05:00:00Z,2021-01-22T07:20:00Z,2021-01-22T07:25:00Z
+Your R is My R too:  Reflections on creating the Mi-R community - Session 2,2:20 AM,2:24 AM,2021-01-22T05:00:00Z,2021-01-22T07:20:00Z,2021-01-22T07:24:00Z
 An easy and friendly way to build your multilingual website - Session 2,2:25 AM,2:30 AM,2021-01-22T05:00:00Z,2021-01-22T07:25:00Z,2021-01-22T07:30:00Z
-Making .pot-ery with R: Translations in R Packages - Session 2,2:30 AM,2:35 AM,2021-01-22T05:00:00Z,2021-01-22T07:30:00Z,2021-01-22T07:35:00Z
-Discussion: Visualisation 2 - Session 2,2:34 AM,2:59 AM,2021-01-22T05:00:00Z,2021-01-22T07:34:00Z,2021-01-22T07:59:00Z
+Making .pot-ery with R: Translations in R Packages - Session 2,2:30 AM,2:34 AM,2021-01-22T05:00:00Z,2021-01-22T07:30:00Z,2021-01-22T07:34:00Z
+Discussion: Visualisation 2 - Session 2,2:35 AM,2:59 AM,2021-01-22T05:00:00Z,2021-01-22T07:35:00Z,2021-01-22T07:59:00Z
 Discussion: Language interop 2 - Session 2,2:37 AM,2:59 AM,2021-01-22T05:00:00Z,2021-01-22T07:37:00Z,2021-01-22T07:59:00Z
 Discussion: Learning 2 - Session 2,2:38 AM,2:59 AM,2021-01-22T05:00:00Z,2021-01-22T07:38:00Z,2021-01-22T07:59:00Z
-Reporting on and visualising the pandemic - Session 2,3:00 AM,3:40 AM,2021-01-22T05:00:00Z,2021-01-22T08:00:00Z,2021-01-22T08:40:00Z
-Q&A: John Burn-Murdoch - Session 2,3:40 AM,4:20 AM,2021-01-22T05:00:00Z,2021-01-22T08:40:00Z,2021-01-22T09:20:00Z
+Reporting on and visualising the pandemic - Session 2,3:00 AM,3:50 AM,2021-01-22T05:00:00Z,2021-01-22T08:00:00Z,2021-01-22T08:50:00Z
+Q&A: John Burn-Murdoch - Session 2,3:50 AM,4:19 AM,2021-01-22T05:00:00Z,2021-01-22T08:50:00Z,2021-01-22T09:19:00Z
 oRganization: How to make internal R packages part of your team - Session 2,5:00 AM,5:19 AM,2021-01-22T05:00:00Z,2021-01-22T10:00:00Z,2021-01-22T10:19:00Z
 Making the jump from learning to applying: R training and documentation for different levels of expertise - Session 2,5:00 AM,5:22 AM,2021-01-22T05:00:00Z,2021-01-22T10:00:00Z,2021-01-22T10:22:00Z
 What's new in tidymodels? - Session 2,5:00 AM,5:16 AM,2021-01-22T05:00:00Z,2021-01-22T10:00:00Z,2021-01-22T10:16:00Z
@@ -116,20 +112,20 @@ Discussion: Teaching 1 - Session 2,5:39 AM,5:59 AM,2021-01-22T05:00:00Z,2021-01-
 "Fairness and Data Science: Failures, Factors, and Futures - Session 2",6:00 AM,6:23 AM,2021-01-22T05:00:00Z,2021-01-22T11:00:00Z,2021-01-22T11:23:00Z
 Monitoring health and impact of open-source projects - Session 2,6:00 AM,6:20 AM,2021-01-22T05:00:00Z,2021-01-22T11:00:00Z,2021-01-22T11:20:00Z
 Feedback at scale - Session 2,6:00 AM,6:20 AM,2021-01-22T05:00:00Z,2021-01-22T11:00:00Z,2021-01-22T11:20:00Z
-Make a package - Make some friends - Session 2,6:20 AM,6:24 AM,2021-01-22T05:00:00Z,2021-01-22T11:20:00Z,2021-01-22T11:24:00Z
-"How to do things with words: learning to program in R with a ""communicative approach"" - Session 2",6:20 AM,6:40 AM,2021-01-22T05:00:00Z,2021-01-22T11:20:00Z,2021-01-22T11:40:00Z
+Make a package - Make some friends - Session 2,6:20 AM,6:25 AM,2021-01-22T05:00:00Z,2021-01-22T11:20:00Z,2021-01-22T11:25:00Z
+"How to do things with words: learning to program in R with a ""communicative approach"" - Session 2",6:20 AM,6:37 AM,2021-01-22T05:00:00Z,2021-01-22T11:20:00Z,2021-01-22T11:37:00Z
 "tidymodels/stacks, Or, In Preparation for Pesto: A Grammar for Stacked Ensemble Modeling - Session 2",6:23 AM,6:27 AM,2021-01-22T05:00:00Z,2021-01-22T11:23:00Z,2021-01-22T11:27:00Z
-Using formr to create R-powered surveys with individualized feedback - Session 2,6:25 AM,6:29 AM,2021-01-22T05:00:00Z,2021-01-22T11:25:00Z,2021-01-22T11:29:00Z
-Using Guided Simulation Exercises to Teach Data Science with R - Session 2,6:27 AM,6:31 AM,2021-01-22T05:00:00Z,2021-01-22T11:27:00Z,2021-01-22T11:31:00Z
-Towards an integrated {verse}: lessons learned developing a library of validated packages - Session 2,6:30 AM,6:34 AM,2021-01-22T05:00:00Z,2021-01-22T11:30:00Z,2021-01-22T11:34:00Z
-How I became a Data Composer – examples of simulated datasets that bring value to a data-driven company - Session 2,6:32 AM,6:36 AM,2021-01-22T05:00:00Z,2021-01-22T11:32:00Z,2021-01-22T11:36:00Z
-The Power of Great Datasets - Session 2,6:35 AM,6:39 AM,2021-01-22T05:00:00Z,2021-01-22T11:35:00Z,2021-01-22T11:39:00Z
-Categorical Embeddings: New Ways to Simplify Complex Data - Session 2,6:37 AM,6:41 AM,2021-01-22T05:00:00Z,2021-01-22T11:37:00Z,2021-01-22T11:41:00Z
-Discussion: Teaching 2 - Session 2,6:40 AM,6:59 AM,2021-01-22T05:00:00Z,2021-01-22T11:40:00Z,2021-01-22T11:59:00Z
+Using formr to create R-powered surveys with individualized feedback - Session 2,6:25 AM,6:30 AM,2021-01-22T05:00:00Z,2021-01-22T11:25:00Z,2021-01-22T11:30:00Z
+Using Guided Simulation Exercises to Teach Data Science with R - Session 2,6:28 AM,6:33 AM,2021-01-22T05:00:00Z,2021-01-22T11:28:00Z,2021-01-22T11:33:00Z
+Towards an integrated {verse}: lessons learned developing a library of validated packages - Session 2,6:30 AM,6:35 AM,2021-01-22T05:00:00Z,2021-01-22T11:30:00Z,2021-01-22T11:35:00Z
+How I became a Data Composer – examples of simulated datasets that bring value to a data-driven company - Session 2,6:33 AM,6:38 AM,2021-01-22T05:00:00Z,2021-01-22T11:33:00Z,2021-01-22T11:38:00Z
+The Power of Great Datasets - Session 2,6:35 AM,6:40 AM,2021-01-22T05:00:00Z,2021-01-22T11:35:00Z,2021-01-22T11:40:00Z
+Discussion: Teaching 2 - Session 2,6:37 AM,6:59 AM,2021-01-22T05:00:00Z,2021-01-22T11:37:00Z,2021-01-22T11:59:00Z
+Categorical Embeddings: New Ways to Simplify Complex Data - Session 2,6:38 AM,6:42 AM,2021-01-22T05:00:00Z,2021-01-22T11:38:00Z,2021-01-22T11:42:00Z
 Discussion: Package dev 2 - Session 2,6:40 AM,6:59 AM,2021-01-22T05:00:00Z,2021-01-22T11:40:00Z,2021-01-22T11:59:00Z
-Discussion: Modelling 2 - Session 2,6:42 AM,6:59 AM,2021-01-22T05:00:00Z,2021-01-22T11:42:00Z,2021-01-22T11:59:00Z
-Your Public Garden - Session 2,7:00 AM,7:40 AM,2021-01-22T05:00:00Z,2021-01-22T12:00:00Z,2021-01-22T12:40:00Z
-Q&A: Vicki Boykis - Session 2,7:40 AM,8:20 AM,2021-01-22T05:00:00Z,2021-01-22T12:40:00Z,2021-01-22T13:20:00Z
+Discussion: Modelling 2 - Session 2,6:43 AM,6:59 AM,2021-01-22T05:00:00Z,2021-01-22T11:43:00Z,2021-01-22T11:59:00Z
+Your Public Garden - Session 2,7:00 AM,7:24 AM,2021-01-22T05:00:00Z,2021-01-22T12:00:00Z,2021-01-22T12:24:00Z
+Q&A: Vicki Boykis - Session 2,7:24 AM,8:19 AM,2021-01-22T05:00:00Z,2021-01-22T12:24:00Z,2021-01-22T13:19:00Z
 Introducing xrprof: A New Way to Profile R - Session 2,9:00 AM,9:18 AM,2021-01-22T05:00:00Z,2021-01-22T14:00:00Z,2021-01-22T14:18:00Z
 The Opioid Files: Turning big pharmacy data over to the public - Session 2,9:00 AM,9:18 AM,2021-01-22T05:00:00Z,2021-01-22T14:00:00Z,2021-01-22T14:18:00Z
 Not The App We Deserve. The App We Need: Putting a GMP Shiny App into Production - Session 2,9:00 AM,9:20 AM,2021-01-22T05:00:00Z,2021-01-22T14:00:00Z,2021-01-22T14:20:00Z
@@ -140,18 +136,18 @@ Making Shiny apps faster with caching - Session 2,9:26 AM,9:31 AM,2021-01-22T05:
 Discussion: Data for good 1 - Session 2,9:29 AM,9:59 AM,2021-01-22T05:00:00Z,2021-01-22T14:29:00Z,2021-01-22T14:59:00Z
 Discussion: Programming 1 - Session 2,9:31 AM,9:59 AM,2021-01-22T05:00:00Z,2021-01-22T14:31:00Z,2021-01-22T14:59:00Z
 Discussion: Organisational tooling 1 - Session 2,9:33 AM,9:33 AM,2021-01-22T05:00:00Z,2021-01-22T14:33:00Z,2021-01-22T14:33:00Z
-Humanitarian Data Science with R - Session 2,10:00 AM,10:20 AM,2021-01-22T05:00:00Z,2021-01-22T15:00:00Z,2021-01-22T15:20:00Z
+Humanitarian Data Science with R - Session 2,10:00 AM,10:19 AM,2021-01-22T05:00:00Z,2021-01-22T15:00:00Z,2021-01-22T15:19:00Z
 Bigger Data With Ease Using Apache Arrow - Session 2,10:00 AM,10:19 AM,2021-01-22T05:00:00Z,2021-01-22T15:00:00Z,2021-01-22T15:19:00Z
 From Zero to Hero: Best practices for setting up Rstudio Team in the Cloud - Session 2,10:00 AM,10:17 AM,2021-01-22T05:00:00Z,2021-01-22T15:00:00Z,2021-01-22T15:17:00Z
 How reproducible am I? A retrospective on a year of commercial data science projects in R - Session 2,10:17 AM,10:21 AM,2021-01-22T05:00:00Z,2021-01-22T15:17:00Z,2021-01-22T15:21:00Z
+Cognitive speed: How the Tidyverse helped the British Red Cross respond quickly to COVID-19 - Session 2,10:19 AM,10:31 AM,2021-01-22T05:00:00Z,2021-01-22T15:19:00Z,2021-01-22T15:31:00Z
 Easy larger-than-RAM data manipulation with {disk.frame} - Session 2,10:19 AM,10:23 AM,2021-01-22T05:00:00Z,2021-01-22T15:19:00Z,2021-01-22T15:23:00Z
-Cognitive speed: How the Tidyverse helped the British Red Cross respond quickly to COVID-19 - Session 2,10:20 AM,10:32 AM,2021-01-22T05:00:00Z,2021-01-22T15:20:00Z,2021-01-22T15:32:00Z
-Lifelong Learning with R Weekly - Session 2,10:21 AM,10:26 AM,2021-01-22T05:00:00Z,2021-01-22T15:21:00Z,2021-01-22T15:26:00Z
+Lifelong Learning with R Weekly - Session 2,10:22 AM,10:26 AM,2021-01-22T05:00:00Z,2021-01-22T15:22:00Z,2021-01-22T15:26:00Z
 xaringan Playground: Using xaringan to learn web development - Session 2,10:24 AM,10:28 AM,2021-01-22T05:00:00Z,2021-01-22T15:24:00Z,2021-01-22T15:28:00Z
-Custom theming in Shiny & R Markdown with bslib & thematic - Session 2,10:26 AM,10:30 AM,2021-01-22T05:00:00Z,2021-01-22T15:26:00Z,2021-01-22T15:30:00Z
+Custom theming in Shiny & R Markdown with bslib & thematic - Session 2,10:26 AM,10:31 AM,2021-01-22T05:00:00Z,2021-01-22T15:26:00Z,2021-01-22T15:31:00Z
 parsermd - parsing R Markdown for fun and profit - Session 2,10:29 AM,10:34 AM,2021-01-22T05:00:00Z,2021-01-22T15:29:00Z,2021-01-22T15:34:00Z
-How Content Makes the Data Go 'Round - Session 2,10:31 AM,10:35 AM,2021-01-22T05:00:00Z,2021-01-22T15:31:00Z,2021-01-22T15:35:00Z
-Discussion: Data for good 2 - Session 2,10:32 AM,10:59 AM,2021-01-22T05:00:00Z,2021-01-22T15:32:00Z,2021-01-22T15:59:00Z
-Designing Randomized Studies using Shiny - Session 2,10:34 AM,10:38 AM,2021-01-22T05:00:00Z,2021-01-22T15:34:00Z,2021-01-22T15:38:00Z
-Discussion: Organisational tooling 2 - Session 2,10:36 AM,10:36 AM,2021-01-22T05:00:00Z,2021-01-22T15:36:00Z,2021-01-22T15:36:00Z
+How Content Makes the Data Go 'Round - Session 2,10:31 AM,10:36 AM,2021-01-22T05:00:00Z,2021-01-22T15:31:00Z,2021-01-22T15:36:00Z
+Discussion: Data for good 2 - Session 2,10:31 AM,10:59 AM,2021-01-22T05:00:00Z,2021-01-22T15:31:00Z,2021-01-22T15:59:00Z
+Designing Randomized Studies using Shiny - Session 2,10:34 AM,10:39 AM,2021-01-22T05:00:00Z,2021-01-22T15:34:00Z,2021-01-22T15:39:00Z
+Discussion: Organisational tooling 2 - Session 2,10:36 AM,10:59 AM,2021-01-22T05:00:00Z,2021-01-22T15:36:00Z,2021-01-22T15:59:00Z
 Discussion: Programming 2 - Session 2,10:39 AM,10:59 AM,2021-01-22T05:00:00Z,2021-01-22T15:39:00Z,2021-01-22T15:59:00Z
