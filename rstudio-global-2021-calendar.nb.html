@@ -3017,59 +3017,15 @@ div.tocify {
 <h1>Setup</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBsb2FkaW5nIGxpYnJhcmllcyAtLVxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBsb2FkaW5nIGxpYnJhcmllcyAtLVxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHJ2ZXN0KVxubGlicmFyeShyb2JvdHN0eHQpXG5saWJyYXJ5KGNhbGVuZGFyKVxubGlicmFyeShsdWJyaWRhdGUpXG5saWJyYXJ5KGhlcmUpXG5gYGAifQ== -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># loading libraries --</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(rvest)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(robotstxt)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(calendar)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">library</span>(here)</span></code></pre></div>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4wIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjMgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjAuNCAgICAg4pyTIGRwbHlyICAgMS4wLjJcbuKckyB0aWR5ciAgIDEuMS4yICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMS40LjAgICAgIOKckyBmb3JjYXRzIDAuNS4wXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxuIn0= -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
-── Attaching packages ─────────────────────────────────── tidyverse 1.3.0 ──
-✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-✓ tibble  3.0.4     ✓ dplyr   1.0.2
-✓ tidyr   1.1.2     ✓ stringr 1.4.0
-✓ readr   1.4.0     ✓ forcats 0.5.0
-── Conflicts ────────────────────────────────────── tidyverse_conflicts() ──
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShydmVzdClcbmBgYCJ9 -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(rvest)</span></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiB4bWwyXG5cbkF0dGFjaGluZyBwYWNrYWdlOiDigJhydmVzdOKAmVxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOnB1cnJy4oCZOlxuXG4gICAgcGx1Y2tcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTpyZWFkcuKAmTpcblxuICAgIGd1ZXNzX2VuY29kaW5nXG4ifQ== -->
-<pre><code>Loading required package: xml2
-
-Attaching package: ‘rvest’
-
-The following object is masked from ‘package:purrr’:
-
-    pluck
-
-The following object is masked from ‘package:readr’:
-
-    guess_encoding</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyb2JvdHN0eHQpXG5saWJyYXJ5KGNhbGVuZGFyKVxubGlicmFyeShsdWJyaWRhdGUpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">library</span>(robotstxt)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">library</span>(calendar)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">library</span>(lubridate)</span></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYbHVicmlkYXRl4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0cyBhcmUgbWFza2VkIGZyb20g4oCYcGFja2FnZTpiYXNl4oCZOlxuXG4gICAgZGF0ZSwgaW50ZXJzZWN0LCBzZXRkaWZmLCB1bmlvblxuIn0= -->
-<pre><code>
-Attaching package: ‘lubridate’
-
-The following objects are masked from ‘package:base’:
-
-    date, intersect, setdiff, union</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShoZXJlKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">library</span>(here)</span></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiaGVyZSgpIHN0YXJ0cyBhdCAvVXNlcnMvc2NhbmVsb24vU3luYy9HSC1hbmFsb2cvcnN0dWRpby1nbG9iYWwtMjAyMS1jYWxlbmRhclxuIn0= -->
-<pre><code>here() starts at /Users/scanelon/Sync/GH-analog/rstudio-global-2021-calendar</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -3079,7 +3035,7 @@ The following objects are masked from ‘package:base’:
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2V0X3JvYm90c3R4dChcImh0dHBzOi8vZ2xvYmFsLnJzdHVkaW8uY29tL3N0dWRlbnQvYWxsX2V2ZW50c1wiKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">get_robotstxt</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">get_robotstxt</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events&quot;</span>)</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiRXZlbnQ6IG9uX25vdF9mb3VuZEV2ZW50OiBvbl9maWxlX3R5cGVfbWlzbWF0Y2hFdmVudDogb25fc3VzcGVjdF9jb250ZW50XG4ifQ== -->
 <pre><code>Event: on_not_foundEvent: on_file_type_mismatchEvent: on_suspect_content</code></pre>
@@ -3133,7 +3089,7 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaHRtbF8xIDwtIHJlYWRfaHRtbChcImh0dHBzOi8vZ2xvYmFsLnJzdHVkaW8uY29tL3N0dWRlbnQvYWxsX2V2ZW50cz9wYWdlPTFcIilcbmBgYCJ9 -->
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>html_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events?page=1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>html_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">read_html</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events?page=1&quot;</span>)</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3143,13 +3099,13 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBldmVudCB0aXRsZSAtLVxudGl0bGVfMSA8LSBodG1sXzEgJT4lXG4gIGh0bWxfbm9kZXMoXCIuc2Vzc2lvbl9fbmFtZVwiKSAlPiVcbiAgaHRtbF90ZXh0KCkgIyBzcGVjaWZpZXMgd2hhdCBmb3JtYXQgd2Ugd2FudFxuXG4jIGRvdWJsZSBjaGVjayBpZiB0aGUgaW5mb3JtYXRpb24geW91IHdhbnQgd2FzIHNhdmVkIC0tXG50aXRsZV8xXG5gYGAifQ== -->
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># event title --</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>title_<span class="dv">1</span> &lt;-<span class="st"> </span>html_<span class="dv">1</span> <span class="op">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__name&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="st">  </span><span class="kw">html_text</span>() <span class="co"># specifies what format we want</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co"># double check if the information you want was saved --</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>title_<span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># event title --</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>title_<span class="dv">1</span> &lt;-<span class="st"> </span>html_<span class="dv">1</span> <span class="op">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__name&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="st">  </span><span class="kw">html_text</span>() <span class="co"># specifies what format we want</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co"># double check if the information you want was saved --</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>title_<span class="dv">1</span></span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIk1haW50YWluaW5nIHRoZSBob3VzZSB0aGUgdGlkeXZlcnNlIGJ1aWx0IC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFsyXSBcIlEmQTogSGFkbGV5IFdpY2toYW0gLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFszXSBcIkFjY2Vzc2libGUgRGF0YSBTY2llbmNlIEJleW9uZCBWaXN1YWwgTW9kZWxzOiBOb24tVmlzdWFsIEludGVyYWN0aW9ucyB3aXRoIFIgYW5kIFJTdHVkaW8gUGFja2FnZXMgLSBTZXNzaW9uIDFcIlxuIFs0XSBcIkFsd2F5cyBsb29rIG9uIHRoZSBicmlnaHQgc2lkZSBvZiBwbG90cyAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs1XSBcIkJyaW5naW5nIHRoZSBUaWR5dmVyc2UgdG8gUHl0aG9uIHdpdGggU2l1YmEgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs2XSBcIkEgTmV3IFBhcmFkaWdtIGZvciBNdWx0aWZpZ3VyZSwgQ29vcmRpbmF0ZS1CYXNlZCBQbG90dGluZyBpbiBSIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs3XSBcIlIgJiBQeXRob246IEdvaW5nIFN0ZWFkeSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs4XSBcIlN0YXJ0aW5nIGFuIFIgQm9vayBDbHViOiBDb29raW5nIFVwIEZyaWVuZHNoaXBzIGluIElzb2xhdGlvbiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs5XSBcIkRpc2N1c3Npb246IExlYXJuaW5nIDEgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzEwXSBcIkRpc2N1c3Npb246IFZpc3VhbGlzYXRpb24gMSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzExXSBcIkRpc2N1c3Npb246IExhbmd1YWdlIGludGVyb3AgMSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzEyXSBcIkFydCBMZXNzb25zOiBPbmUgWWVhciBhcyBSU3R1ZGlv4oCZcyBBcnRpc3QtaW4tUmVzaWRlbmNlIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTNdIFwiVXNpbmcgcGlucyB3aXRoIFB5dGhvbiBhbmQgSmF2YVNjcmlwdCAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTRdIFwiVHJpYWwgYW5kIEVycm9yIGluIERhdGEgVml6IGF0IHRoZSBBQ0xVIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTVdIFwiUmFjaWFsIEVxdWl0eSBEYXNoYm9hcmQ6IFVucGFja2luZyBTeXN0ZW1pYyBJbmVxdWl0eSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTZdIFwiVGhlIGR5bmFtaWMgZHVvOiBTUUwgJiBSIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTddIFwiQWVzdGhldGljYWxseSBhdXRvbWF0ZWQgZmlndXJlIHByb2R1Y3Rpb24gLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMThdIFwiWW91ciBSIGlzIE15IFIgdG9vOiAgUmVmbGVjdGlvbnMgb24gY3JlYXRpbmcgdGhlIE1pLVIgY29tbXVuaXR5IC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTldIFwiQW4gZWFzeSBhbmQgZnJpZW5kbHkgd2F5IHRvIGJ1aWxkIHlvdXIgbXVsdGlsaW5ndWFsIHdlYnNpdGUgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMjBdIFwiTWFraW5nIC5wb3QtZXJ5IHdpdGggUjogVHJhbnNsYXRpb25zIGluIFIgUGFja2FnZXMgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMjFdIFwiRGlzY3Vzc2lvbjogVmlzdWFsaXNhdGlvbiAyIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMjJdIFwiRGlzY3Vzc2lvbjogTGFuZ3VhZ2UgaW50ZXJvcCAyIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMjNdIFwiRGlzY3Vzc2lvbjogTGVhcm5pbmcgMiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMjRdIFwiUmVwb3J0aW5nIG9uIGFuZCB2aXN1YWxpc2luZyB0aGUgcGFuZGVtaWMgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4ifQ== -->
 <pre><code> [1] &quot;Maintaining the house the tidyverse built - Session 1&quot;                                                        
@@ -3178,12 +3134,12 @@ problems, cached, request, class</code></pre>
 [24] &quot;Reporting on and visualising the pandemic - Session 1&quot;                                                        </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBkYXRlcyAtLVxuZGF0ZXRpbWVfMSA8LSBodG1sXzEgJT4lXG4gIGh0bWxfbm9kZXMoXCIuc2Vzc2lvbl9fZGF0ZXMuc2Vzc2lvbl9fZGF0ZXMtLWluZGV4XCIpICU+JVxuICBodG1sX3RleHQoKVxuXG5kYXRldGltZV8xXG5gYGAifQ== -->
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># dates --</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>datetime_<span class="dv">1</span> &lt;-<span class="st"> </span>html_<span class="dv">1</span> <span class="op">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__dates.session__dates--index&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="st">  </span><span class="kw">html_text</span>()</span>
-<span id="cb15-5"><a href="#cb15-5"></a></span>
-<span id="cb15-6"><a href="#cb15-6"></a>datetime_<span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># dates --</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>datetime_<span class="dv">1</span> &lt;-<span class="st"> </span>html_<span class="dv">1</span> <span class="op">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__dates.session__dates--index&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="st">  </span><span class="kw">html_text</span>()</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a>datetime_<span class="dv">1</span></span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgMTE6MDAgQU3CoHRvwqAxMTozMyBBTSBFU1RcIlxuIFsyXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgMTE6MzMgQU3CoHRvwqAxMjoxOCBQTSBFU1RcIlxuIFszXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MDAgUE3CoHRvwqAxOjE5IFBNIEVTVFwiIFxuIFs0XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MDAgUE3CoHRvwqAxOjIxIFBNIEVTVFwiIFxuIFs1XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MDAgUE3CoHRvwqAxOjIwIFBNIEVTVFwiIFxuIFs2XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MTkgUE3CoHRvwqAxOjMzIFBNIEVTVFwiIFxuIFs3XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MTkgUE3CoHRvwqAxOjM0IFBNIEVTVFwiIFxuIFs4XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MjEgUE3CoHRvwqAxOjI4IFBNIEVTVFwiIFxuIFs5XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MjkgUE3CoHRvwqAxOjU5IFBNIEVTVFwiIFxuWzEwXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MzMgUE3CoHRvwqAxOjU5IFBNIEVTVFwiIFxuWzExXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDE6MzQgUE3CoHRvwqAxOjU5IFBNIEVTVFwiIFxuWzEyXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MDAgUE3CoHRvwqAyOjE5IFBNIEVTVFwiIFxuWzEzXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MDAgUE3CoHRvwqAyOjE5IFBNIEVTVFwiIFxuWzE0XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MDAgUE3CoHRvwqAyOjE2IFBNIEVTVFwiIFxuWzE1XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MTYgUE3CoHRvwqAyOjIwIFBNIEVTVFwiIFxuWzE2XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MTkgUE3CoHRvwqAyOjM2IFBNIEVTVFwiIFxuWzE3XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MTkgUE3CoHRvwqAyOjM5IFBNIEVTVFwiIFxuWzE4XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MjAgUE3CoHRvwqAyOjI0IFBNIEVTVFwiIFxuWzE5XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MjUgUE3CoHRvwqAyOjMwIFBNIEVTVFwiIFxuWzIwXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MzAgUE3CoHRvwqAyOjM0IFBNIEVTVFwiIFxuWzIxXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MzUgUE3CoHRvwqAyOjU5IFBNIEVTVFwiIFxuWzIyXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MzcgUE3CoHRvwqAyOjU5IFBNIEVTVFwiIFxuWzIzXSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDI6MzggUE3CoHRvwqAyOjU4IFBNIEVTVFwiIFxuWzI0XSBcIlRodXJzZGF5LCBKYW4gMjEsIDIwMjEgYXQgIDM6MDAgUE3CoHRvwqAzOjUwIFBNIEVTVFwiIFxuIn0= -->
 <pre><code> [1] &quot;Thursday, Jan 21, 2021 at 11:00 AM to 11:33 AM EST&quot;
@@ -3219,27 +3175,27 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzY3JhcGluZyBldmVudCB0aXRsZXMgLS1cbmdldF90aXRsZXMgPC0gbmFtZSA8LSBmdW5jdGlvbihwYWdlX251bWJlcikge1xuICBTeXMuc2xlZXAoMilcbiAgXG4gIGxpbmsgPC0gcGFzdGUwKFwiaHR0cHM6Ly9nbG9iYWwucnN0dWRpby5jb20vc3R1ZGVudC9hbGxfZXZlbnRzP3BhZ2U9XCIsIHBhZ2VfbnVtYmVyKVxuICBcbiAgcmVhZF9odG1sKGxpbmspICU+JVxuICBodG1sX25vZGVzKFwiLnNlc3Npb25fX25hbWVcIikgJT4lXG4gIGh0bWxfdGV4dCgpICBcbn1cblxuIyBzY3JhcGluZyBldmVudCBkYXRlcyBhbmQgdGltZXMgLS1cbmdldF9kYXRlcyA8LSBuYW1lIDwtIGZ1bmN0aW9uKHBhZ2VfbnVtYmVyKSB7XG4gIFN5cy5zbGVlcCgyKVxuICBcbiAgbGluayA8LSBwYXN0ZTAoXCJodHRwczovL2dsb2JhbC5yc3R1ZGlvLmNvbS9zdHVkZW50L2FsbF9ldmVudHM/cGFnZT1cIiwgcGFnZV9udW1iZXIpXG4gIFxuICByZWFkX2h0bWwobGluaykgJT4lXG4gIGh0bWxfbm9kZXMoXCIuc2Vzc2lvbl9fZGF0ZXMuc2Vzc2lvbl9fZGF0ZXMtLWluZGV4XCIpICU+JVxuICBodG1sX3RleHQoKSAgXG59XG5gYGAifQ== -->
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># scraping event titles --</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>get_titles &lt;-<span class="st"> </span>name &lt;-<span class="st"> </span><span class="cf">function</span>(page_number) {</span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="kw">Sys.sleep</span>(<span class="dv">2</span>)</span>
-<span id="cb17-4"><a href="#cb17-4"></a>  </span>
-<span id="cb17-5"><a href="#cb17-5"></a>  link &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events?page=&quot;</span>, page_number)</span>
-<span id="cb17-6"><a href="#cb17-6"></a>  </span>
-<span id="cb17-7"><a href="#cb17-7"></a>  <span class="kw">read_html</span>(link) <span class="op">%&gt;%</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__name&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="st">  </span><span class="kw">html_text</span>()  </span>
-<span id="cb17-10"><a href="#cb17-10"></a>}</span>
-<span id="cb17-11"><a href="#cb17-11"></a></span>
-<span id="cb17-12"><a href="#cb17-12"></a><span class="co"># scraping event dates and times --</span></span>
-<span id="cb17-13"><a href="#cb17-13"></a>get_dates &lt;-<span class="st"> </span>name &lt;-<span class="st"> </span><span class="cf">function</span>(page_number) {</span>
-<span id="cb17-14"><a href="#cb17-14"></a>  <span class="kw">Sys.sleep</span>(<span class="dv">2</span>)</span>
-<span id="cb17-15"><a href="#cb17-15"></a>  </span>
-<span id="cb17-16"><a href="#cb17-16"></a>  link &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events?page=&quot;</span>, page_number)</span>
-<span id="cb17-17"><a href="#cb17-17"></a>  </span>
-<span id="cb17-18"><a href="#cb17-18"></a>  <span class="kw">read_html</span>(link) <span class="op">%&gt;%</span></span>
-<span id="cb17-19"><a href="#cb17-19"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__dates.session__dates--index&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb17-20"><a href="#cb17-20"></a><span class="st">  </span><span class="kw">html_text</span>()  </span>
-<span id="cb17-21"><a href="#cb17-21"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># scraping event titles --</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>get_titles &lt;-<span class="st"> </span>name &lt;-<span class="st"> </span><span class="cf">function</span>(page_number) {</span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="kw">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>  </span>
+<span id="cb10-5"><a href="#cb10-5"></a>  link &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events?page=&quot;</span>, page_number)</span>
+<span id="cb10-6"><a href="#cb10-6"></a>  </span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="kw">read_html</span>(link) <span class="op">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__name&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="st">  </span><span class="kw">html_text</span>()  </span>
+<span id="cb10-10"><a href="#cb10-10"></a>}</span>
+<span id="cb10-11"><a href="#cb10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co"># scraping event dates and times --</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>get_dates &lt;-<span class="st"> </span>name &lt;-<span class="st"> </span><span class="cf">function</span>(page_number) {</span>
+<span id="cb10-14"><a href="#cb10-14"></a>  <span class="kw">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb10-15"><a href="#cb10-15"></a>  </span>
+<span id="cb10-16"><a href="#cb10-16"></a>  link &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://global.rstudio.com/student/all_events?page=&quot;</span>, page_number)</span>
+<span id="cb10-17"><a href="#cb10-17"></a>  </span>
+<span id="cb10-18"><a href="#cb10-18"></a>  <span class="kw">read_html</span>(link) <span class="op">%&gt;%</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="st">&quot;.session__dates.session__dates--index&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="st">  </span><span class="kw">html_text</span>()  </span>
+<span id="cb10-21"><a href="#cb10-21"></a>}</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3249,7 +3205,7 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2V0X3RpdGxlcygzKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">get_titles</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">get_titles</span>(<span class="dv">3</span>)</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIkRpc2N1c3Npb246IE1vZGVsbGluZyAyIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFsyXSBcIllvdXIgUHVibGljIEdhcmRlbiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFszXSBcIlEmQTogVmlja2kgQm95a2lzIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs0XSBcIkludHJvZHVjaW5nIHhycHJvZjogQSBOZXcgV2F5IHRvIFByb2ZpbGUgUiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs1XSBcIlRoZSBPcGlvaWQgRmlsZXM6IFR1cm5pbmcgYmlnIHBoYXJtYWN5IGRhdGEgb3ZlciB0byB0aGUgcHVibGljIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs2XSBcIk5vdCBUaGUgQXBwIFdlIERlc2VydmUuIFRoZSBBcHAgV2UgTmVlZDogUHV0dGluZyBhIEdNUCBTaGlueSBBcHAgaW50byBQcm9kdWN0aW9uIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgIFxuIFs3XSBcInBsdW1iZXIgKyBmdXR1cmU6IEFzeW5jIFdlYiBBUElzIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs4XSBcInJLZW55YUNlbnN1cyBQYWNrYWdlIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs5XSBcIkhvdyB3ZSBtYWRlIHRoZSBzd2l0Y2g6IGEgY2FzZSBzdHVkeSBvbiBhdXRvbWF0aW5nIGEgY29tcGxleCByZXBvcnQuIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgIFxuWzEwXSBcIk1ha2luZyBTaGlueSBhcHBzIGZhc3RlciB3aXRoIGNhY2hpbmcgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzExXSBcIkRpc2N1c3Npb246IERhdGEgZm9yIGdvb2QgMSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzEyXSBcIkRpc2N1c3Npb246IFByb2dyYW1taW5nIDEgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzEzXSBcIkRpc2N1c3Npb246IE9yZ2FuaXNhdGlvbmFsIHRvb2xpbmcgMSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE0XSBcIkh1bWFuaXRhcmlhbiBEYXRhIFNjaWVuY2Ugd2l0aCBSIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE1XSBcIkJpZ2dlciBEYXRhIFdpdGggRWFzZSBVc2luZyBBcGFjaGUgQXJyb3cgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE2XSBcIkZyb20gWmVybyB0byBIZXJvOiBCZXN0IHByYWN0aWNlcyBmb3Igc2V0dGluZyB1cCBSc3R1ZGlvIFRlYW0gaW4gdGhlIENsb3VkIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgIFxuWzE3XSBcIkhvdyByZXByb2R1Y2libGUgYW0gST8gQSByZXRyb3NwZWN0aXZlIG9uIGEgeWVhciBvZiBjb21tZXJjaWFsIGRhdGEgc2NpZW5jZSBwcm9qZWN0cyBpbiBSIC0gU2Vzc2lvbiAxXCIgIFxuWzE4XSBcIkNvZ25pdGl2ZSBzcGVlZDogSG93IHRoZSBUaWR5dmVyc2UgaGVscGVkIHRoZSBCcml0aXNoIFJlZCBDcm9zcyByZXNwb25kIHF1aWNrbHkgdG8gQ09WSUQtMTkgLSBTZXNzaW9uIDFcIlxuWzE5XSBcIkVhc3kgbGFyZ2VyLXRoYW4tUkFNIGRhdGEgbWFuaXB1bGF0aW9uIHdpdGgge2Rpc2suZnJhbWV9IC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIwXSBcIkxpZmVsb25nIExlYXJuaW5nIHdpdGggUiBXZWVrbHkgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIxXSBcInhhcmluZ2FuIFBsYXlncm91bmQ6IFVzaW5nIHhhcmluZ2FuIHRvIGxlYXJuIHdlYiBkZXZlbG9wbWVudCAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIyXSBcIkN1c3RvbSB0aGVtaW5nIGluIFNoaW55ICYgUiBNYXJrZG93biB3aXRoIGJzbGliICYgdGhlbWF0aWMgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIzXSBcInBhcnNlcm1kIC0gcGFyc2luZyBSIE1hcmtkb3duIGZvciBmdW4gYW5kIHByb2ZpdCAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzI0XSBcIkhvdyBDb250ZW50IE1ha2VzIHRoZSBEYXRhIEdvICdSb3VuZCAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIn0= -->
 <pre><code> [1] &quot;Discussion: Modelling 2 - Session 1&quot;                                                                    
@@ -3286,7 +3242,7 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWFwKDI6NCwgZ2V0X3RpdGxlcylcbmBgYCJ9 -->
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">map</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, get_titles)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">map</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, get_titles)</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiW1sxXV1cbiBbMV0gXCJRJkE6IEpvaG4gQnVybi1NdXJkb2NoIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFsyXSBcIm9SZ2FuaXphdGlvbjogSG93IHRvIG1ha2UgaW50ZXJuYWwgUiBwYWNrYWdlcyBwYXJ0IG9mIHlvdXIgdGVhbSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gWzNdIFwiTWFraW5nIHRoZSBqdW1wIGZyb20gbGVhcm5pbmcgdG8gYXBwbHlpbmc6IFIgdHJhaW5pbmcgYW5kIGRvY3VtZW50YXRpb24gZm9yIGRpZmZlcmVudCBsZXZlbHMgb2YgZXhwZXJ0aXNlIC0gU2Vzc2lvbiAxXCJcbiBbNF0gXCJXaGF0J3MgbmV3IGluIHRpZHltb2RlbHM/IC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs1XSBcIlVzaW5nIFIgdG8gVXAgWW91ciBFeHBlcmltZW50YXRpb24gR2FtZSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gWzZdIFwiWW91J3JlIEFscmVhZHkgUmVhZHk6IFplbiBhbmQgdGhlIEFydCBvZiBSIFBhY2thZ2UgRGV2ZWxvcG1lbnQgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbN10gXCJPbiBwcm9ncmFtbWluZywgdGVhY2hpbmcsIGFuZCBidWlsZGluZyBpbnRlcmFjdGl2ZSB0dXRvcmlhbHMgd2l0aCBsZWFybnI6OiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFs4XSBcIkRpc2N1c3Npb246IE1vZGVsbGluZyAxIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gWzldIFwiRGlzY3Vzc2lvbjogUGFja2FnZSBkZXYgMSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxMF0gXCJEaXNjdXNzaW9uOiBUZWFjaGluZyAxIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzExXSBcIkZhaXJuZXNzIGFuZCBEYXRhIFNjaWVuY2U6IEZhaWx1cmVzLCBGYWN0b3JzLCBhbmQgRnV0dXJlcyAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTJdIFwiTW9uaXRvcmluZyBoZWFsdGggYW5kIGltcGFjdCBvZiBvcGVuLXNvdXJjZSBwcm9qZWN0cyAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxM10gXCJGZWVkYmFjayBhdCBzY2FsZSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE0XSBcIk1ha2UgYSBwYWNrYWdlIC0gTWFrZSBzb21lIGZyaWVuZHMgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTVdIFwiSG93IHRvIGRvIHRoaW5ncyB3aXRoIHdvcmRzOiBsZWFybmluZyB0byBwcm9ncmFtIGluIFIgd2l0aCBhIFxcXCJjb21tdW5pY2F0aXZlIGFwcHJvYWNoXFxcIiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgXG5bMTZdIFwidGlkeW1vZGVscy9zdGFja3MsIE9yLCBJbiBQcmVwYXJhdGlvbiBmb3IgUGVzdG86IEEgR3JhbW1hciBmb3IgU3RhY2tlZCBFbnNlbWJsZSBNb2RlbGluZyAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICBcblsxN10gXCJVc2luZyBmb3JtciB0byBjcmVhdGUgUi1wb3dlcmVkIHN1cnZleXMgd2l0aCBpbmRpdmlkdWFsaXplZCBmZWVkYmFjayAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE4XSBcIlVzaW5nIEd1aWRlZCBTaW11bGF0aW9uIEV4ZXJjaXNlcyB0byBUZWFjaCBEYXRhIFNjaWVuY2Ugd2l0aCBSIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMTldIFwiVG93YXJkcyBhbiBpbnRlZ3JhdGVkIHt2ZXJzZX06IGxlc3NvbnMgbGVhcm5lZCBkZXZlbG9waW5nIGEgbGlicmFyeSBvZiB2YWxpZGF0ZWQgcGFja2FnZXMgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICBcblsyMF0gXCJIb3cgSSBiZWNhbWUgYSBEYXRhIENvbXBvc2VyIOKAkyBleGFtcGxlcyBvZiBzaW11bGF0ZWQgZGF0YXNldHMgdGhhdCBicmluZyB2YWx1ZSB0byBhIGRhdGEtZHJpdmVuIGNvbXBhbnkgLSBTZXNzaW9uIDFcIiAgXG5bMjFdIFwiVGhlIFBvd2VyIG9mIEdyZWF0IERhdGFzZXRzIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsyMl0gXCJEaXNjdXNzaW9uOiBUZWFjaGluZyAyIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIzXSBcIkNhdGVnb3JpY2FsIEVtYmVkZGluZ3M6IE5ldyBXYXlzIHRvIFNpbXBsaWZ5IENvbXBsZXggRGF0YSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMjRdIFwiRGlzY3Vzc2lvbjogUGFja2FnZSBkZXYgMiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblxuW1syXV1cbiBbMV0gXCJEaXNjdXNzaW9uOiBNb2RlbGxpbmcgMiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbMl0gXCJZb3VyIFB1YmxpYyBHYXJkZW4gLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbM10gXCJRJkE6IFZpY2tpIEJveWtpcyAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbNF0gXCJJbnRyb2R1Y2luZyB4cnByb2Y6IEEgTmV3IFdheSB0byBQcm9maWxlIFIgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbNV0gXCJUaGUgT3Bpb2lkIEZpbGVzOiBUdXJuaW5nIGJpZyBwaGFybWFjeSBkYXRhIG92ZXIgdG8gdGhlIHB1YmxpYyAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbNl0gXCJOb3QgVGhlIEFwcCBXZSBEZXNlcnZlLiBUaGUgQXBwIFdlIE5lZWQ6IFB1dHRpbmcgYSBHTVAgU2hpbnkgQXBwIGludG8gUHJvZHVjdGlvbiAtIFNlc3Npb24gMVwiICAgICAgICAgICBcbiBbN10gXCJwbHVtYmVyICsgZnV0dXJlOiBBc3luYyBXZWIgQVBJcyAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbOF0gXCJyS2VueWFDZW5zdXMgUGFja2FnZSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbOV0gXCJIb3cgd2UgbWFkZSB0aGUgc3dpdGNoOiBhIGNhc2Ugc3R1ZHkgb24gYXV0b21hdGluZyBhIGNvbXBsZXggcmVwb3J0LiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICBcblsxMF0gXCJNYWtpbmcgU2hpbnkgYXBwcyBmYXN0ZXIgd2l0aCBjYWNoaW5nIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxMV0gXCJEaXNjdXNzaW9uOiBEYXRhIGZvciBnb29kIDEgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxMl0gXCJEaXNjdXNzaW9uOiBQcm9ncmFtbWluZyAxIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxM10gXCJEaXNjdXNzaW9uOiBPcmdhbmlzYXRpb25hbCB0b29saW5nIDEgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxNF0gXCJIdW1hbml0YXJpYW4gRGF0YSBTY2llbmNlIHdpdGggUiAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxNV0gXCJCaWdnZXIgRGF0YSBXaXRoIEVhc2UgVXNpbmcgQXBhY2hlIEFycm93IC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxNl0gXCJGcm9tIFplcm8gdG8gSGVybzogQmVzdCBwcmFjdGljZXMgZm9yIHNldHRpbmcgdXAgUnN0dWRpbyBUZWFtIGluIHRoZSBDbG91ZCAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICBcblsxN10gXCJIb3cgcmVwcm9kdWNpYmxlIGFtIEk/IEEgcmV0cm9zcGVjdGl2ZSBvbiBhIHllYXIgb2YgY29tbWVyY2lhbCBkYXRhIHNjaWVuY2UgcHJvamVjdHMgaW4gUiAtIFNlc3Npb24gMVwiICBcblsxOF0gXCJDb2duaXRpdmUgc3BlZWQ6IEhvdyB0aGUgVGlkeXZlcnNlIGhlbHBlZCB0aGUgQnJpdGlzaCBSZWQgQ3Jvc3MgcmVzcG9uZCBxdWlja2x5IHRvIENPVklELTE5IC0gU2Vzc2lvbiAxXCJcblsxOV0gXCJFYXN5IGxhcmdlci10aGFuLVJBTSBkYXRhIG1hbmlwdWxhdGlvbiB3aXRoIHtkaXNrLmZyYW1lfSAtIFNlc3Npb24gMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsyMF0gXCJMaWZlbG9uZyBMZWFybmluZyB3aXRoIFIgV2Vla2x5IC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsyMV0gXCJ4YXJpbmdhbiBQbGF5Z3JvdW5kOiBVc2luZyB4YXJpbmdhbiB0byBsZWFybiB3ZWIgZGV2ZWxvcG1lbnQgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsyMl0gXCJDdXN0b20gdGhlbWluZyBpbiBTaGlueSAmIFIgTWFya2Rvd24gd2l0aCBic2xpYiAmIHRoZW1hdGljIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsyM10gXCJwYXJzZXJtZCAtIHBhcnNpbmcgUiBNYXJrZG93biBmb3IgZnVuIGFuZCBwcm9maXQgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsyNF0gXCJIb3cgQ29udGVudCBNYWtlcyB0aGUgRGF0YSBHbyAnUm91bmQgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblxuW1szXV1cbiBbMV0gXCJEaXNjdXNzaW9uOiBEYXRhIGZvciBnb29kIDIgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbMl0gXCJEZXNpZ25pbmcgUmFuZG9taXplZCBTdHVkaWVzIHVzaW5nIFNoaW55IC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbM10gXCJEaXNjdXNzaW9uOiBPcmdhbmlzYXRpb25hbCB0b29saW5nIDIgLSBTZXNzaW9uIDFcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbNF0gXCJEaXNjdXNzaW9uOiBQcm9ncmFtbWluZyAyIC0gU2Vzc2lvbiAxXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbNV0gXCJNYWludGFpbmluZyB0aGUgaG91c2UgdGhlIHRpZHl2ZXJzZSBidWlsdCAtIFNlc3Npb24gMlwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbNl0gXCJRJkE6IEhhZGxleSBXaWNraGFtIC0gU2Vzc2lvbiAyXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbN10gXCJBY2Nlc3NpYmxlIERhdGEgU2NpZW5jZSBCZXlvbmQgVmlzdWFsIE1vZGVsczogTm9uLVZpc3VhbCBJbnRlcmFjdGlvbnMgd2l0aCBSIGFuZCBSU3R1ZGlvIFBhY2thZ2VzIC0gU2Vzc2lvbiAyXCJcbiBbOF0gXCJBbHdheXMgbG9vayBvbiB0aGUgYnJpZ2h0IHNpZGUgb2YgcGxvdHMgLSBTZXNzaW9uIDJcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBbOV0gXCJCcmluZ2luZyB0aGUgVGlkeXZlcnNlIHRvIFB5dGhvbiB3aXRoIFNpdWJhIC0gU2Vzc2lvbiAyXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxMF0gXCJBIE5ldyBQYXJhZGlnbSBmb3IgTXVsdGlmaWd1cmUsIENvb3JkaW5hdGUtQmFzZWQgUGxvdHRpbmcgaW4gUiAtIFNlc3Npb24gMlwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxMV0gXCJSICYgUHl0aG9uOiBHb2luZyBTdGVhZHkgLSBTZXNzaW9uIDJcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxMl0gXCJTdGFydGluZyBhbiBSIEJvb2sgQ2x1YjogQ29va2luZyBVcCBGcmllbmRzaGlwcyBpbiBJc29sYXRpb24gLSBTZXNzaW9uIDJcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxM10gXCJEaXNjdXNzaW9uOiBMZWFybmluZyAxIC0gU2Vzc2lvbiAyXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxNF0gXCJEaXNjdXNzaW9uOiBWaXN1YWxpc2F0aW9uIDEgLSBTZXNzaW9uIDJcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxNV0gXCJEaXNjdXNzaW9uOiBMYW5ndWFnZSBpbnRlcm9wIDEgLSBTZXNzaW9uIDJcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxNl0gXCJBcnQgTGVzc29uczogT25lIFllYXIgYXMgUlN0dWRpb+KAmXMgQXJ0aXN0LWluLVJlc2lkZW5jZSAtIFNlc3Npb24gMlwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE3XSBcIlVzaW5nIHBpbnMgd2l0aCBQeXRob24gYW5kIEphdmFTY3JpcHQgLSBTZXNzaW9uIDJcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE4XSBcIlRyaWFsIGFuZCBFcnJvciBpbiBEYXRhIFZpeiBhdCB0aGUgQUNMVSAtIFNlc3Npb24gMlwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzE5XSBcIlJhY2lhbCBFcXVpdHkgRGFzaGJvYXJkOiBVbnBhY2tpbmcgU3lzdGVtaWMgSW5lcXVpdHkgLSBTZXNzaW9uIDJcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIwXSBcIlRoZSBkeW5hbWljIGR1bzogU1FMICYgUiAtIFNlc3Npb24gMlwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIxXSBcIkFlc3RoZXRpY2FsbHkgYXV0b21hdGVkIGZpZ3VyZSBwcm9kdWN0aW9uIC0gU2Vzc2lvbiAyXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIyXSBcIllvdXIgUiBpcyBNeSBSIHRvbzogIFJlZmxlY3Rpb25zIG9uIGNyZWF0aW5nIHRoZSBNaS1SIGNvbW11bml0eSAtIFNlc3Npb24gMlwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzIzXSBcIkFuIGVhc3kgYW5kIGZyaWVuZGx5IHdheSB0byBidWlsZCB5b3VyIG11bHRpbGluZ3VhbCB3ZWJzaXRlIC0gU2Vzc2lvbiAyXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzI0XSBcIk1ha2luZyAucG90LWVyeSB3aXRoIFI6IFRyYW5zbGF0aW9ucyBpbiBSIFBhY2thZ2VzIC0gU2Vzc2lvbiAyXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIn0= -->
 <pre><code>[[1]]
@@ -3368,7 +3324,7 @@ problems, cached, request, class</code></pre>
 [24] &quot;Making .pot-ery with R: Translations in R Packages - Session 2&quot;                                               </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB0aGVuIGNoZWNrIHdpdGggdGhlIHdlYnNpdGUgdG8gc2VlIGlmIGl0IG1hdGNoZXNcbmBgYCJ9 -->
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># then check with the website to see if it matches</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># then check with the website to see if it matches</span></span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3378,25 +3334,25 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB0aXRsZXMgLS1cbnRpdGxlc19hbGwgPC0gbWFwKDE6NywgZ2V0X3RpdGxlcykgJT4lXG4gIHVubGlzdCgpXG5cbiMgZGF0ZXMgLS1cbmRhdGVzX2FsbCA8LSBtYXAoMTo3LCBnZXRfZGF0ZXMpICU+JVxuICB1bmxpc3QoKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># titles --</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>titles_all &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, get_titles) <span class="op">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="st">  </span><span class="kw">unlist</span>()</span>
-<span id="cb23-4"><a href="#cb23-4"></a></span>
-<span id="cb23-5"><a href="#cb23-5"></a><span class="co"># dates --</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a>dates_all &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, get_dates) <span class="op">%&gt;%</span></span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="st">  </span><span class="kw">unlist</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># titles --</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>titles_all &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, get_titles) <span class="op">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="st">  </span><span class="kw">unlist</span>()</span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co"># dates --</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>dates_all &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, get_dates) <span class="op">%&gt;%</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="st">  </span><span class="kw">unlist</span>()</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBjcmVhdGluZyB0aWJibGUgZnJvbSBzY3JhcGVzIC0tXG5zY2hlZHVsZSA8LSBcbiAgdGliYmxlKGV2ZW50X25hbWUgPSB0aXRsZXNfYWxsLFxuICAgICAgICAgZGF0ZV90aW1lID0gZGF0ZXNfYWxsKVxuXG5zY2hlZHVsZVxuYGBgIn0= -->
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># creating tibble from scrapes --</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>schedule &lt;-<span class="st"> </span></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="st">  </span><span class="kw">tibble</span>(<span class="dt">event_name =</span> titles_all,</span>
-<span id="cb24-4"><a href="#cb24-4"></a>         <span class="dt">date_time =</span> dates_all)</span>
-<span id="cb24-5"><a href="#cb24-5"></a></span>
-<span id="cb24-6"><a href="#cb24-6"></a>schedule</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># creating tibble from scrapes --</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>schedule &lt;-<span class="st"> </span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="st">  </span><span class="kw">tibble</span>(<span class="dt">event_name =</span> titles_all,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>         <span class="dt">date_time =</span> dates_all)</span>
+<span id="cb17-5"><a href="#cb17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6"></a>schedule</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTUyLCJuY29sIjoyfSwicmRmIjoiSDRzSUFBQUFBQUFBQThWY2JXOGJ4eEZXWHR3aUJ0SVc2T2UwaTdTSmdVWlVwVHVTa29paUtTMUxzaDNMVmlqWlRvSUN3Zkp1Ulc1MHZMM2Uza2xtZ2dEK0QvMlNmc3R2eVUvSkQ0azdzM2Q3V2xKTDZmWkVPd1pra2NkOWRtWjJubm5aQWUzQnZTLzgyMS9jWGxsWmVXZmxYZmg1NXhhOFhMbjE5SGl2dGJXeTh1N2I4T1l0K09BOS9QMENGdjBSWHVERFA4RFBEK1VIblFQSzR3eCtlRHdpMlppUnNjZ2xVNjh5SGs3UFdBcnZoam1QTXRJaVIweEtMbUt5VVlMLy9QbkgvUjY1VDhPSVRjbHpIcHlPNmNTeWJOSVBBbncwakJpNVJ6TktqZ0xPNG9DUnUyd3E0cEE4NHpLbkVUa1FJWXRranp3V2NhdDg5Q0RPV0VxRERIYVQ1SnhuWXpJZ0ZCQ0RveXdQdVNDSE5EaWxJeVl0UXYxK2RFNm5ra1JDbkJKNGpoWU5VejRhWjBUeWtCRnhRcEpJWkRibzV0MFVUa01meUhGMURCa0luR1pqV0tsVU9lTDVrRnJnRC92a01Uc0gzVklhOHRHRW5JaVVIT1JSeGsvNEtFL1pLdGtSSWcxNVREUFd1a3NsQzhraEtKS2hQQjZEZ1pkMy9PdUFmRnlLN3BGOWdTdVBNa2JEcVdYdC9hT01wbW96aXB2ZFJmTjNvbnpZUTdHbitQeHBRdlpTY0VBb3h6eVJLUE9CRkJIRlE3YnM5K0U5TG9OY1BldVJSNHltaWlrYmxwVjN6SldGQTdrc3RyVXQvOXZNeGpRZTVlQkowQVk4THBJNXhNcExSTnpycHhtb0lDV3dvVWVleEl4OENmb1FLalVmZm43NVAwbGdFWmRaaThldEFVTlBJOUV1Uzk5NEt0R09oR3RpbFo1RmRqMmtaL1FvU0hsaTQ3eC9uSEpnSnE3YlRWTndMWnlmSXZVei9pMmhtYUpNZitmUlV3djBYd01hSUhiM1B6blBwb0NTNDZHZ2FkZ2pUK01FbUt6OE9wVVptL0FBcU0rS1pSWTZISU9NY0JwVFhCZm1va2VPUG44RURMRlJwOU5uRWxUS2VFQ2phRXBvbm9rSkVDOGtCUmxKa29vd0R4YjQvck12Ulo3Q3RseVNneW44emdUSUlnTjJFckV5Sm1GeGtES2E2V0E1NEswQkNjUmtrc2QyM2ZmN01XRlVUdFVCbmlnYWdsb1FxUmhkbUdkQ01rV2hFd3lZaUNNckluTE9ocEpuTmpmKzg0Q3FZMXRMUk5aaTZiUk1FajF5bk5KWUZxU1dSVmhka1N1dVlLN256Rndid2g1RXRwV2RBVXRFRWI4bEc4OUtmZlFSSi9CUU1jUWlSdVhqaDJJY2s3dDVHcmNPOGpRVXdkam1XVEVZMFpoL3E0eUVGQzdPOGZ3bjlMUzBJNFpUSDVCRUgxa0NLUVV6cG5JTlpCNWJsczlMVjZDTzMrU1RCTHdySmlUU3hzTDJORW1pS2J6dUlaWFNzdWFnaWFCa1BtRlFodFNSWTc0TStja0pTK0VSYkhBR1ZRR0ZzeGNKdzlpMjhlQ2o1Mk9hM1pFa2hzUUwzc2JTTlZIbDVGTmJDQmV4ajN6R1pLaEl2b3ViOHdzbDl1bkVKdWNoTEw0RFlkT1BVcFYvQi9oM2ozekZDbCtwNEMrT3FpSWN1WWNXaUFUM3R1ejQ3RW1NUVRoSzZXUUNXcTNpOFFaajlRcDNWQ0ZSbElheUZKNUJJWUlveGl4VXBpNTF4bW12WjluOUx5YnhWSUdORnFYdmo4eWxXdmVRblZrWHp4RDZ1TlRZdW5KM2ovSTBob2ZLSExQODl3aDhGRUVTa3F2d0tnQ1RaR0h6WHA3aFUxc0dQUkNRVndTV1p6Sm1OQUxqRWNBbndGUjE2aUpoY1V1Q1F3T1YycjZCUEdYYjU0TTl4c0loMklnWlcwSnF0UGw2N1FERGdlb29nQlhxZ1JUQWpDSnoyYmFtWlN5RkF0Z0FlcFkrT29lU0QwWExESWZTNjBWMlVvc28rYkRNblFGVmpvYUlTUVVjN29jV1FlRUZ5Zjh1TTlBUlR1OUp1Z3FGZ3h5bURDTDJJcG9Pb1FaQTV1NlRmV1FabEV4OGVJUVlLQVM3c1dRVGJNMFVQVkMzeTdJT2k0Z0IyQ1JGMVZYT1oyVFFTc1E1aEdsSVpKNmVzV2xwSzQ5RGZzWkR6RnJmWXFYUloyMEpwMkxmL1J6cWRBZ05GV1Q5UXV2ZEZ5d05JTlFsU2xQOG11MGN5MTd3OG83c1dKeERTVVcycVpDQkU4WnE5NTNxNEw1SEI2ajJvWEFFZkJBV3dha3lFWW40TUtWUVJJQklaNkI4cUtDSnJXNFVEVW1Pdm41QWhpekFiRUVMRlhmRUpCR1NwZVRubC8rRm5FVW5DY2pFTFdWaEhncUZkWklCTXpQSVd0aVZnblFRbUtzV2s2cVBXMkVLQklpeGxrTEN0MVhTTzlnRkhPTDU0K2I3NkJHbGdOcTRic1RhU3REdURpZzVnaUFMc0ZlWkRGbUlDUWdiYzBpdXo3R25CaTNCVjBuRVQ2YkszSWk5S0d4M3lDbzJ5UXV5bFczcG4xVFdQc3lIRVZUQ2ZmQTRzelV3SDZpQytBeHVKaHc2NGVrcHQ1MU1GMjRacWd0Q1dTOVNpTGdUakpYU1d0WDF3eU1PRVdJajNFTjB3NU9FQ3c2SkN4YkJPUjNuUll3UE9UU1lZNXBPYURCVlRpVUNhSWdicWpwZTZINTV4MzgvRmhuQlhmdEpRcDVqL1FBMm5iRTE4OWxqaUNrNHo3eTRObEN5ZjNCSWpzQ2pVN1VBaUsrVVh0elpyU1pSRHA1TnlTZmtSR1Zic0ZoTzR3RDJIcEwrNFFQYk9aSDBNeFpQNlE2TFpTNHJYMXFTQlViRk9ZTnVJaXd1a2hLaU5SajNRTTBBMkVrazlPcFQxZDBVeldoaFFWRHlLRlg5ejVxdFpTOGJqTUpPU0kyU25GRG9sdE1pR3dRbHBhOXA3eFJQTWYrTmhBaHJGTUtMMG14ZHZHNHVmcEppVTFWMGpoQTcwQzR2ckxhcjkvTUpySVc3R3FkeHpkeld2c3RISXpCWHJYNk9xM2J4UElzYzJvYzhwYnFQRkU3ZjBtYnNZVGYyRlhTb3lMLzc4THNIMTIrWlFSWENwZ0x1NStwUUlIa29mK1FKR2NqaWpuM01paHFGbnR5SlJCN2FzaTY2SER4WGhCRVdFOEE4K0JTaUtHVVFXekpoUmVPQ1RpZFR2TFJCeXNKU2gxa2VUa29GaHl6dHIrcjJndHZ3YUVlTTRPUndQOWdZNDBDVjNKbXIrcGhGQ1N2Nk1iak1ROU1JSndydmQwQVhDVHJKQk9jT2NMOEtUaU1WNFR0UG5qMjQxOXJZdG9pN3Q0dlhsWWltY1BRdFNOaHdyK3dmRkJxakJ4TmRzcFRidmd1NVBGMDdBY2F3N3kxN2ZmS0luMEM1Z1FPdUxnR2x0NTh6aHFwWTd2TXZLTllISU1saFJLZWpWT1F4WGhpVno2dVB3QUpWMFBDbXBFdmFnbjV6YnllSFptQ0NSek1wUnc1RlFPSDk4WUNtcDZFNEw0MFpTaWlJOEJ5WGdvMjJYUFVQNkRNZ08wMlFGUGl5Nkt1cmJaQlNKM25SRzJOZTVUYU4xdEY5T3dLS05TaU1MWlpVZmxNczN4Zmt6Z0JOZGd0clc4Vm9ReDdsSTNYbUE5QkhURlJ6b2dZSElER1hGNm1sV1pUYlpDNU1KZGFyWDVOUm5GZHZGS2VYdmRGUm5CYmFZQlNub1ExSGNScSt2RkdjM3JIT0tFNnZYZFlvVHU5My9Tak9zNFhHNGxHY1hsNS9GT2N0Y1JTbnBUdVA0aXBldVkvaU5QU21vN2lLRGpWR2NYcHRvMUdjQmk5eEZLZTNYTklvVG05M3MxRmNEZVo2enN5MUlhNGZ4VlgrYWpLS3E4UmNPNHFyUEx1OFVaemU4bGNaeFduaHRVWnhWUWk3aitLcTNMNjBVWnplOGZXTTR2VHVOVVp4bnJWdFdEQ0tzeExhT29yVEs1Y3lpcXN5NkExSGNYcWZLMGR4ZXBIYktFNmpYdnNvVGd0NkU2TTRMV3ZabzdncW5KWTJpdE03dnBGUm5QZHJqdUtxb2xWdkZIZDF4TnBLMEZKR2NkZG1GWnZrR3FNNHZmVHFVVndWNTFlTjR2U2lacU80aXNKTEc4WHBIVi9uS0U3TGNCbkZhY3gxbzdncVdTeDVGRmUxN0s2ak9HdDd0M2dVWjZmc2dsR2NYdXc2aXFzYzREQ0swNWdtbzdpcXpYZ3RvN2dxNjc2SlVad1c5b1pHY1ZyY01rWnhlaStIVVZ4MW4xL1NLRTd2dDV4Um5ON3RKcU80S29RY1IzRTF3dHBXTVpxTTRseWkzQ2F6MWlnT3VvbnkyM0ZGVjlFK0h1ZXBET2wwbFR3RTMzb2JxOFJiOXphd1ZkM1k2SzJ2ay83QlR6OW00cWNmNFozdnd6dXllM1JjQzZ0V2wxaXZ0N0ZGRGsyc3Z4aExsTnhEamUxQm9EU0Z3dFBHMEhVWHFOSlJROEh5eHRDMkMxU1pWeW5zZE1LZUtiWGpkTUxLdkliUWRrT29aenJIYzZMRUVxRmRGNmhhcmFFdWJQSk1Tbmc5MzAzcUROVEpWcyswMVhNZ0lxenVtRktkYlBWTnFTNzBoOVdtVkRjMitadk5vVnNtMUNIb2ZKTk5mcS9qY0V6bDZnTGFkdUp3eDVUYXVRblU4NXBMZGVCd3g0eWNqbE5hNjVqMDd6aXhxVFN2Z2pvZGs4SGhibUY0ZldqYmtPcEN4RkxISnRDdTZaeHV6M01vVi9OUUIxdHZCUFZtb0ozR1VCWDM5YUcrS2RVTjJqR2x1dG02WlVLZG5ETkRSTi9wbUh6VFZ0OGg2THBtSHU3MjJrNjJHbm00NjhoaDN6eW10a051S25Wc0pyWHRONFJ1bXZUZmRLcXY1ZW9DdXVXVXdyZE5xZHRPWGZqeW9DNmhYZ3Fxb0E2Rll4N3FwTEJuS3V3N3NLblVzWUk2M0RpMnpTNTgyNGxOcGFDR1VQOEs2RldYdXZXWks5TDZKU2ErTWV5bUMzWmowOFRPWHdtdndXNmIySG5udW1EbnErelZXS01ad1hkZEoyeDdCcnZsaE8wMnQ5ZWJQYXUyQzlaZ003NXpzbmNXNjhabmYrYXM1cnUrYTdEZEc4amRib3FkSFZOY0hqWmNPNVNwc0dvb016UFEyZGhMK1FYU214K09WT01jcEhZeklEeHRDRnl2RDFUYUdjT1loc0IyZmFBeXl4akUxQWVhRWpzT3AycE8xOXlBN1VaQXozU0g1MENBcFFHNzlZRnFyVEY2cVEvY05vQytpOFFab0lPTm5tbWpWNXR5YXVSaVNIU3cwVGNsMWllNUdyZGNBRjJZQTAxK1ErQldJNkJ2TWtlTlRtb0RPeGZBdGdOWE82YkVUbk1nbFAyR0VtdHp0V05HUjhjaFdYVk1rbmNjbUZPYVpZeFdhZ01Ocm5ZTGcrc0MyNGJFK3N3cHRYTUhkazEzcU1GQlEyQnRHMjhBOUdhQW5ZWkFGZFYxZ2I0cDBRWFlNU1c2MkxobEFoM2NNVU01MytGd2ZOTkd2M1pZZGMyOHFrWVQ5WUdiQnRDRnE3NTVPTzNhT2FmVXJvbkV0dDhJdUdtU2ZOT2hQcFpyalpGSlRlQzJLWEhib1VOZUZyQitJSmRDakZGSlE2Q0RxcDZwcWwrYk9hVjJ4cENrUG5EYkFOWm5UaW1rRWRBM1ZaMUxIZDRpWURHa3FGcnI5VXVjZXlQSXpmcklqVTBUT1g4eHV4SzViU0xublZrZk9WOGxyMElhTFVReHBxaVBiTThndHh5UTNhWjJlck1uMUs2UE5GaGJqQmdhSXVjSmZ5Vnk1b1RtKzdNcmtkM0dNcmNYSUdmK1U2ZGJNWjB3dVZKOFplWHQ4dUZ0ZHNiaTdHdjhxSHp5SG41NTl1dU13NE5aL0h1cE9GL1RlN3lQZTd5RXYxNjllaldlRnhSRVZHcEIrdUZ0L041VjhmMHFlUGZMSE9TM0lsSC80QU0yeGY5MjZ0WWMrSzEwN3NIdjh4ZzFDVnZCT0k5UFc5c29RSDFjL0htL2ZQMkQ4ZnJ0UXVUYnI4cXRicFZiL1liaHZ4alQxdCtLNkpCRjVadmZnY1hLNExVazVYR21MWUduY2kwVEdkWHJiZ2NpMGsrVWJTdS8vQitwTVZ5MmJVc0FBQT09In0= -->
 <div data-pagedtable="false">
@@ -3413,22 +3369,22 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBkZWZpbmluZyBzdHJpbmcgcGF0dGVybnMgLS1cbnN0cl9hdCA8LSBcIlxcXFxzK2F0XFxcXHMrXCJcbnN0cl90byA8LSBcIlxcXFxzK3RvXFxcXHMrXCJcbnN0cl9FU1QgPC0gXCIgRVNUXCJcbnN0cl9kYXkgPC0gXCJcXFxcdytcXFxcLFxcXFxzK1wiXG5cbiMgd3JhbmdsaW5nIHRoZSBkYXRlLXRpbWUgc3RyaW5ncyAtLVxuc2NoZWR1bGVfbmV3X3RpbWVzIDwtXG5zY2hlZHVsZSAlPiVcbiAgbXV0YXRlKGRhdGUgPSBzdHJfcmVwbGFjZV9hbGwoZGF0ZV90aW1lLCBwYXR0ZXJuID0gc3RyX3RvLCBcIi1cIiksXG4gICAgICAgICBkYXRlID0gc3RyX3JlcGxhY2VfYWxsKGRhdGUsIHN0cl9FU1QsIFwiXCIpKSAlPiVcbiAgdGlkeXI6OnNlcGFyYXRlKGRhdGUsIHNlcCA9IHN0cl9hdCwgYyhcImRheV9kYXRlXCIsIFwidGltZVwiKSkgJT4lXG4gIG11dGF0ZShkYXRlID0gc3RyX3JlcGxhY2UoZGF5X2RhdGUsIHBhdHRlcm4gPSBzdHJfZGF5LCBcIlwiKSxcbiAgICAgICAgIGRhdGUgPSBsdWJyaWRhdGU6Om1keShkYXRlLCB0eiA9IFwiVVMvRWFzdGVyblwiKSkgJT4lXG4gIG11dGF0ZShkYXRlX3RpbWVfbmV3ID0gc3RyX2MoZGF0ZSwgdGltZSwgc2VwID0gXCIgXCIpKSAlPiVcbiAgdGlkeXI6OnNlcGFyYXRlKHRpbWUsIHNlcCA9IFwiLVwiLCBjKFwic3RhcnRfdGltZVwiLCBcImVuZF90aW1lXCIpKVxuYGBgIn0= -->
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># defining string patterns --</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>str_at &lt;-<span class="st"> &quot;</span><span class="ch">\\</span><span class="st">s+at</span><span class="ch">\\</span><span class="st">s+&quot;</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>str_to &lt;-<span class="st"> &quot;</span><span class="ch">\\</span><span class="st">s+to</span><span class="ch">\\</span><span class="st">s+&quot;</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a>str_EST &lt;-<span class="st"> &quot; EST&quot;</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>str_day &lt;-<span class="st"> &quot;</span><span class="ch">\\</span><span class="st">w+</span><span class="ch">\\</span><span class="st">,</span><span class="ch">\\</span><span class="st">s+&quot;</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a></span>
-<span id="cb25-7"><a href="#cb25-7"></a><span class="co"># wrangling the date-time strings --</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a>schedule_new_times &lt;-</span>
-<span id="cb25-9"><a href="#cb25-9"></a>schedule <span class="op">%&gt;%</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">str_replace_all</span>(date_time, <span class="dt">pattern =</span> str_to, <span class="st">&quot;-&quot;</span>),</span>
-<span id="cb25-11"><a href="#cb25-11"></a>         <span class="dt">date =</span> <span class="kw">str_replace_all</span>(date, str_EST, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">separate</span>(date, <span class="dt">sep =</span> str_at, <span class="kw">c</span>(<span class="st">&quot;day_date&quot;</span>, <span class="st">&quot;time&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">str_replace</span>(day_date, <span class="dt">pattern =</span> str_day, <span class="st">&quot;&quot;</span>),</span>
-<span id="cb25-14"><a href="#cb25-14"></a>         <span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw">mdy</span>(date, <span class="dt">tz =</span> <span class="st">&quot;US/Eastern&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb25-15"><a href="#cb25-15"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date_time_new =</span> <span class="kw">str_c</span>(date, time, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb25-16"><a href="#cb25-16"></a><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">separate</span>(time, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;start_time&quot;</span>, <span class="st">&quot;end_time&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># defining string patterns --</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>str_at &lt;-<span class="st"> &quot;</span><span class="ch">\\</span><span class="st">s+at</span><span class="ch">\\</span><span class="st">s+&quot;</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>str_to &lt;-<span class="st"> &quot;</span><span class="ch">\\</span><span class="st">s+to</span><span class="ch">\\</span><span class="st">s+&quot;</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>str_EST &lt;-<span class="st"> &quot; EST&quot;</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>str_day &lt;-<span class="st"> &quot;</span><span class="ch">\\</span><span class="st">w+</span><span class="ch">\\</span><span class="st">,</span><span class="ch">\\</span><span class="st">s+&quot;</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="co"># wrangling the date-time strings --</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a>schedule_new_times &lt;-</span>
+<span id="cb18-9"><a href="#cb18-9"></a>schedule <span class="op">%&gt;%</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">str_replace_all</span>(date_time, <span class="dt">pattern =</span> str_to, <span class="st">&quot;-&quot;</span>),</span>
+<span id="cb18-11"><a href="#cb18-11"></a>         <span class="dt">date =</span> <span class="kw">str_replace_all</span>(date, str_EST, <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">separate</span>(date, <span class="dt">sep =</span> str_at, <span class="kw">c</span>(<span class="st">&quot;day_date&quot;</span>, <span class="st">&quot;time&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">str_replace</span>(day_date, <span class="dt">pattern =</span> str_day, <span class="st">&quot;&quot;</span>),</span>
+<span id="cb18-14"><a href="#cb18-14"></a>         <span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw">mdy</span>(date, <span class="dt">tz =</span> <span class="st">&quot;US/Eastern&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date_time_new =</span> <span class="kw">str_c</span>(date, time, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">separate</span>(time, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;start_time&quot;</span>, <span class="st">&quot;end_time&quot;</span>))</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3438,20 +3394,20 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB3cmFuZ2xpbmcgdGhlIGRhdGVzIGFuZCB0aW1lcyAtLVxuc2NoZWR1bGVfbmV3IDwtXG5zY2hlZHVsZV9uZXdfdGltZXMgJT4lXG4gIG11dGF0ZShzdGFydF9kYXRldGltZSA9IHN0cl9jKGRhdGUsIHN0YXJ0X3RpbWUsIHNlcCA9IFwiIFwiKSxcbiAgICAgICAgIGVuZF9kYXRldGltZSA9IHN0cl9jKGRhdGUsIGVuZF90aW1lLCBzZXAgPSBcIiBcIikpICU+JVxuICBtdXRhdGUoYWNyb3NzKGMoc3RhcnRfZGF0ZXRpbWUsIGVuZF9kYXRldGltZSksIFxuICAgICAgICAgICAgICAgIH5sdWJyaWRhdGU6OnltZF9obSgueCwgdHogPSBcIlVTL0Vhc3Rlcm5cIikpKSAlPiVcbiAgc2VsZWN0KC1jKGRhdGVfdGltZSwgZGF5X2RhdGUsIGRhdGVfdGltZV9uZXcpKVxuXG4jIHdyaXRpbmcgdG8gQ1NWIGFuZCBSRFMgZmlsZXMgLS1cbndyaXRlX2NzdihzY2hlZHVsZV9uZXcsIFxuICAgICAgICAgIGhlcmUoXCJzY2hlZHVsZS1maWxlc1wiLCBcInNjaGVkdWxlX25ld19FU1QuY3N2XCIpKVxuc2F2ZVJEUyhzY2hlZHVsZV9uZXcsIFxuICAgICAgICBoZXJlKFwic2NoZWR1bGUtZmlsZXNcIiwgXCJzY2hlZHVsZV9uZXdfRVNULlJkc1wiKSlcbmBgYCJ9 -->
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># wrangling the dates and times --</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>schedule_new &lt;-</span>
-<span id="cb26-3"><a href="#cb26-3"></a>schedule_new_times <span class="op">%&gt;%</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">start_datetime =</span> <span class="kw">str_c</span>(date, start_time, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>),</span>
-<span id="cb26-5"><a href="#cb26-5"></a>         <span class="dt">end_datetime =</span> <span class="kw">str_c</span>(date, end_time, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="kw">c</span>(start_datetime, end_datetime), </span>
-<span id="cb26-7"><a href="#cb26-7"></a>                <span class="op">~</span>lubridate<span class="op">::</span><span class="kw">ymd_hm</span>(.x, <span class="dt">tz =</span> <span class="st">&quot;US/Eastern&quot;</span>))) <span class="op">%&gt;%</span></span>
-<span id="cb26-8"><a href="#cb26-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(date_time, day_date, date_time_new))</span>
-<span id="cb26-9"><a href="#cb26-9"></a></span>
-<span id="cb26-10"><a href="#cb26-10"></a><span class="co"># writing to CSV and RDS files --</span></span>
-<span id="cb26-11"><a href="#cb26-11"></a><span class="kw">write_csv</span>(schedule_new, </span>
-<span id="cb26-12"><a href="#cb26-12"></a>          <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_EST.csv&quot;</span>))</span>
-<span id="cb26-13"><a href="#cb26-13"></a><span class="kw">saveRDS</span>(schedule_new, </span>
-<span id="cb26-14"><a href="#cb26-14"></a>        <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_EST.Rds&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># wrangling the dates and times --</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>schedule_new &lt;-</span>
+<span id="cb19-3"><a href="#cb19-3"></a>schedule_new_times <span class="op">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">start_datetime =</span> <span class="kw">str_c</span>(date, start_time, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>),</span>
+<span id="cb19-5"><a href="#cb19-5"></a>         <span class="dt">end_datetime =</span> <span class="kw">str_c</span>(date, end_time, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="kw">across</span>(<span class="kw">c</span>(start_datetime, end_datetime), </span>
+<span id="cb19-7"><a href="#cb19-7"></a>                <span class="op">~</span>lubridate<span class="op">::</span><span class="kw">ymd_hm</span>(.x, <span class="dt">tz =</span> <span class="st">&quot;US/Eastern&quot;</span>))) <span class="op">%&gt;%</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(date_time, day_date, date_time_new))</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="co"># writing to CSV and RDS files --</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="kw">write_csv</span>(schedule_new, </span>
+<span id="cb19-12"><a href="#cb19-12"></a>          <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_EST.csv&quot;</span>))</span>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="kw">saveRDS</span>(schedule_new, </span>
+<span id="cb19-14"><a href="#cb19-14"></a>        <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_EST.Rds&quot;</span>))</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3461,18 +3417,18 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGltZXpvbmUgPC0gU3lzLnRpbWV6b25lKClcblxuc2NoZWR1bGVfbmV3X3RpbWV6b25lIDwtIHNjaGVkdWxlX25ldyAlPiVcbiAgbXV0YXRlKHN0YXJ0X2RhdGV0aW1lID0gbHVicmlkYXRlOjp3aXRoX3R6KHN0YXJ0X2RhdGV0aW1lLCB0em9uZSA9IHRpbWV6b25lKSxcbiAgICAgICAgIGVuZF9kYXRldGltZSA9IGx1YnJpZGF0ZTo6d2l0aF90eihlbmRfZGF0ZXRpbWUsIHR6b25lID0gdGltZXpvbmUpKVxuXG4jIHdyaXRpbmcgdG8gQ1NWIGFuZCBSRFMgZmlsZXMgLS1cbndyaXRlX2NzdihzY2hlZHVsZV9uZXdfdGltZXpvbmUsIFxuICAgICAgICAgIGhlcmUoXCJzY2hlZHVsZS1maWxlc1wiLCBcInNjaGVkdWxlX25ld19sb2NhbHR6LmNzdlwiKSlcbnNhdmVSRFMoc2NoZWR1bGVfbmV3X3RpbWV6b25lLCBcbiAgICAgICAgaGVyZShcInNjaGVkdWxlLWZpbGVzXCIsIFwic2NoZWR1bGVfbmV3X2xvY2FsdHouUmRzXCIpKVxuICBcbmBgYCJ9 -->
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>timezone &lt;-<span class="st"> </span><span class="kw">Sys.timezone</span>()</span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a>schedule_new_timezone &lt;-<span class="st"> </span>schedule_new <span class="op">%&gt;%</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">start_datetime =</span> lubridate<span class="op">::</span><span class="kw">with_tz</span>(start_datetime, <span class="dt">tzone =</span> timezone),</span>
-<span id="cb27-5"><a href="#cb27-5"></a>         <span class="dt">end_datetime =</span> lubridate<span class="op">::</span><span class="kw">with_tz</span>(end_datetime, <span class="dt">tzone =</span> timezone))</span>
-<span id="cb27-6"><a href="#cb27-6"></a></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="co"># writing to CSV and RDS files --</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="kw">write_csv</span>(schedule_new_timezone, </span>
-<span id="cb27-9"><a href="#cb27-9"></a>          <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_localtz.csv&quot;</span>))</span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="kw">saveRDS</span>(schedule_new_timezone, </span>
-<span id="cb27-11"><a href="#cb27-11"></a>        <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_localtz.Rds&quot;</span>))</span>
-<span id="cb27-12"><a href="#cb27-12"></a>  </span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>timezone &lt;-<span class="st"> </span><span class="kw">Sys.timezone</span>()</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>schedule_new_timezone &lt;-<span class="st"> </span>schedule_new <span class="op">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">start_datetime =</span> lubridate<span class="op">::</span><span class="kw">with_tz</span>(start_datetime, <span class="dt">tzone =</span> timezone),</span>
+<span id="cb20-5"><a href="#cb20-5"></a>         <span class="dt">end_datetime =</span> lubridate<span class="op">::</span><span class="kw">with_tz</span>(end_datetime, <span class="dt">tzone =</span> timezone))</span>
+<span id="cb20-6"><a href="#cb20-6"></a></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="co"># writing to CSV and RDS files --</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="kw">write_csv</span>(schedule_new_timezone, </span>
+<span id="cb20-9"><a href="#cb20-9"></a>          <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_localtz.csv&quot;</span>))</span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="kw">saveRDS</span>(schedule_new_timezone, </span>
+<span id="cb20-11"><a href="#cb20-11"></a>        <span class="kw">here</span>(<span class="st">&quot;schedule-files&quot;</span>, <span class="st">&quot;schedule_new_localtz.Rds&quot;</span>))</span>
+<span id="cb20-12"><a href="#cb20-12"></a>  </span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3482,27 +3438,27 @@ problems, cached, request, class</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBjcmVhdGluZyBhIGZ1bmN0aW9uIC0tXG5tYWtlX2NhbGVuZGFyIDwtIGZ1bmN0aW9uKGV2ZW50KSB7XG4gIGV2ZW50X3N1YnNldCA8LSBzY2hlZHVsZV9uZXdfdGltZXpvbmVbZXZlbnQsIF1cbiAgXG4gIGNhbGVuZGFyX2V2ZW50IDwtXG4gIGNhbGVuZGFyOjppY19ldmVudChzdGFydF90aW1lID0gZXZlbnRfc3Vic2V0JHN0YXJ0X2RhdGV0aW1lLFxuICAgICAgICAgICAgICAgICAgICAgZW5kX3RpbWUgPSBldmVudF9zdWJzZXQkZW5kX2RhdGV0aW1lLFxuICAgICAgICAgICAgICAgICAgICAgc3VtbWFyeSA9IGV2ZW50X3N1YnNldCRldmVudF9uYW1lKVxuICBcbiAgcmV0dXJuKGNhbGVuZGFyX2V2ZW50KVxufVxuXG5udW1iZXJfZXZlbnRzIDwtIGxlbmd0aChzY2hlZHVsZV9uZXdfdGltZXpvbmUkZXZlbnRfbmFtZSlcblxuIyBjcmVhdGluZyBpY3Mgb2JqZWN0cyBmb3IgYWxsIGV2ZW50cyAtLVxuZXZlbnRzX2FsbCA8LSBtYXAoMTpudW1iZXJfZXZlbnRzLCBtYWtlX2NhbGVuZGFyKSAlPiUgXG4gIGJpbmRfcm93cygpXG5cbiMgd3JpdGluZyB0byAuaWNzIGZpbGUgLS1cbmNhbGVuZGFyOjppY193cml0ZShldmVudHNfYWxsLFxuICAgICAgICAgICAgICAgICAgIGhlcmUoXCJjYWxlbmRhci1maWxlcy1pY3NcIiwgXCJhbGxfZXZlbnRzX2xvY2FsdGltZS5pY3NcIikpXG5gYGAifQ== -->
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># creating a function --</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>make_calendar &lt;-<span class="st"> </span><span class="cf">function</span>(event) {</span>
-<span id="cb28-3"><a href="#cb28-3"></a>  event_subset &lt;-<span class="st"> </span>schedule_new_timezone[event, ]</span>
-<span id="cb28-4"><a href="#cb28-4"></a>  </span>
-<span id="cb28-5"><a href="#cb28-5"></a>  calendar_event &lt;-</span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="st">  </span>calendar<span class="op">::</span><span class="kw">ic_event</span>(<span class="dt">start_time =</span> event_subset<span class="op">$</span>start_datetime,</span>
-<span id="cb28-7"><a href="#cb28-7"></a>                     <span class="dt">end_time =</span> event_subset<span class="op">$</span>end_datetime,</span>
-<span id="cb28-8"><a href="#cb28-8"></a>                     <span class="dt">summary =</span> event_subset<span class="op">$</span>event_name)</span>
-<span id="cb28-9"><a href="#cb28-9"></a>  </span>
-<span id="cb28-10"><a href="#cb28-10"></a>  <span class="kw">return</span>(calendar_event)</span>
-<span id="cb28-11"><a href="#cb28-11"></a>}</span>
-<span id="cb28-12"><a href="#cb28-12"></a></span>
-<span id="cb28-13"><a href="#cb28-13"></a>number_events &lt;-<span class="st"> </span><span class="kw">length</span>(schedule_new_timezone<span class="op">$</span>event_name)</span>
-<span id="cb28-14"><a href="#cb28-14"></a></span>
-<span id="cb28-15"><a href="#cb28-15"></a><span class="co"># creating ics objects for all events --</span></span>
-<span id="cb28-16"><a href="#cb28-16"></a>events_all &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span>number_events, make_calendar) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb28-17"><a href="#cb28-17"></a><span class="st">  </span><span class="kw">bind_rows</span>()</span>
-<span id="cb28-18"><a href="#cb28-18"></a></span>
-<span id="cb28-19"><a href="#cb28-19"></a><span class="co"># writing to .ics file --</span></span>
-<span id="cb28-20"><a href="#cb28-20"></a>calendar<span class="op">::</span><span class="kw">ic_write</span>(events_all,</span>
-<span id="cb28-21"><a href="#cb28-21"></a>                   <span class="kw">here</span>(<span class="st">&quot;calendar-files-ics&quot;</span>, <span class="st">&quot;all_events_localtime.ics&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># creating a function --</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>make_calendar &lt;-<span class="st"> </span><span class="cf">function</span>(event) {</span>
+<span id="cb21-3"><a href="#cb21-3"></a>  event_subset &lt;-<span class="st"> </span>schedule_new_timezone[event, ]</span>
+<span id="cb21-4"><a href="#cb21-4"></a>  </span>
+<span id="cb21-5"><a href="#cb21-5"></a>  calendar_event &lt;-</span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="st">  </span>calendar<span class="op">::</span><span class="kw">ic_event</span>(<span class="dt">start_time =</span> event_subset<span class="op">$</span>start_datetime,</span>
+<span id="cb21-7"><a href="#cb21-7"></a>                     <span class="dt">end_time =</span> event_subset<span class="op">$</span>end_datetime,</span>
+<span id="cb21-8"><a href="#cb21-8"></a>                     <span class="dt">summary =</span> event_subset<span class="op">$</span>event_name)</span>
+<span id="cb21-9"><a href="#cb21-9"></a>  </span>
+<span id="cb21-10"><a href="#cb21-10"></a>  <span class="kw">return</span>(calendar_event)</span>
+<span id="cb21-11"><a href="#cb21-11"></a>}</span>
+<span id="cb21-12"><a href="#cb21-12"></a></span>
+<span id="cb21-13"><a href="#cb21-13"></a>number_events &lt;-<span class="st"> </span><span class="kw">length</span>(schedule_new_timezone<span class="op">$</span>event_name)</span>
+<span id="cb21-14"><a href="#cb21-14"></a></span>
+<span id="cb21-15"><a href="#cb21-15"></a><span class="co"># creating ics objects for all events --</span></span>
+<span id="cb21-16"><a href="#cb21-16"></a>events_all &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="dv">1</span><span class="op">:</span>number_events, make_calendar) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb21-17"><a href="#cb21-17"></a><span class="st">  </span><span class="kw">bind_rows</span>()</span>
+<span id="cb21-18"><a href="#cb21-18"></a></span>
+<span id="cb21-19"><a href="#cb21-19"></a><span class="co"># writing to .ics file --</span></span>
+<span id="cb21-20"><a href="#cb21-20"></a>calendar<span class="op">::</span><span class="kw">ic_write</span>(events_all,</span>
+<span id="cb21-21"><a href="#cb21-21"></a>                   <span class="kw">here</span>(<span class="st">&quot;calendar-files-ics&quot;</span>, <span class="st">&quot;all_events_localtime.ics&quot;</span>))</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3511,8 +3467,8 @@ problems, cached, request, class</code></pre>
 <h1>Saving as an R script</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6OnB1cmwoXCJyc3R1ZGlvLWdsb2JhbC0yMDIxLWNhbGVuZGFyLlJtZFwiKVxuXG5gYGAifQ== -->
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>knitr<span class="op">::</span><span class="kw">purl</span>(<span class="st">&quot;rstudio-global-2021-calendar.Rmd&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6OnB1cmwoXCJyc3R1ZGlvLWdsb2JhbC0yMDIxLWNhbGVuZGFyLlJtZFwiKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>knitr<span class="op">::</span><span class="kw">purl</span>(<span class="st">&quot;rstudio-global-2021-calendar.Rmd&quot;</span>)</span></code></pre></div>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiXG5cbnByb2Nlc3NpbmcgZmlsZTogcnN0dWRpby1nbG9iYWwtMjAyMS1jYWxlbmRhci5SbWRcbiJ9 -->
 <pre><code>

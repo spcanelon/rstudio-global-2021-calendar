@@ -1,4 +1,4 @@
-## -------------------------------------------------------------------------
+## ---- warning=FALSE-------------------------------------------------------
 # loading libraries --
 library(tidyverse)
 library(rvest)
@@ -161,6 +161,6 @@ calendar::ic_write(events_all,
                    here("calendar-files-ics", "all_events_localtime.ics"))
 
 
-## -------------------------------------------------------------------------
+## ---- warning=FALSE-------------------------------------------------------
 knitr::purl("rstudio-global-2021-calendar.Rmd")
 
