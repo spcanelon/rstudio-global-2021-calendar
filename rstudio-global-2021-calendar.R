@@ -35,25 +35,25 @@ datetime_1
 
 ## -------------------------------------------------------------------------
 # scraping event titles --
-get_titles <- name <- function(page_number) {
+get_titles <- function(page_number) {
   Sys.sleep(2)
-  
+
   link <- paste0("https://global.rstudio.com/student/all_events?page=", page_number)
-  
+
   read_html(link) %>%
   html_nodes(".session__name") %>%
-  html_text()  
+  html_text()
 }
 
 # scraping event dates and times --
-get_dates <- name <- function(page_number) {
+get_dates <- function(page_number) {
   Sys.sleep(2)
-  
+
   link <- paste0("https://global.rstudio.com/student/all_events?page=", page_number)
-  
+
   read_html(link) %>%
   html_nodes(".session__dates.session__dates--index") %>%
-  html_text()  
+  html_text()
 }
 
 
@@ -79,7 +79,7 @@ dates_all <- map(1:7, get_dates) %>%
 
 ## -------------------------------------------------------------------------
 # creating tibble from scrapes --
-schedule <- 
+schedule <-
   tibble(event_name = titles_all,
          date_time = dates_all)
 
@@ -111,14 +111,14 @@ schedule_new <-
 schedule_new_times %>%
   mutate(start_datetime = str_c(date, start_time, sep = " "),
          end_datetime = str_c(date, end_time, sep = " ")) %>%
-  mutate(across(c(start_datetime, end_datetime), 
+  mutate(across(c(start_datetime, end_datetime),
                 ~lubridate::ymd_hm(.x, tz = "US/Eastern"))) %>%
   select(-c(date_time, day_date, date_time_new))
 
 # writing to CSV and RDS files --
-write_csv(schedule_new, 
+write_csv(schedule_new,
           here("schedule-files", "schedule_new_EST.csv"))
-saveRDS(schedule_new, 
+saveRDS(schedule_new,
         here("schedule-files", "schedule_new_EST.Rds"))
 
 
@@ -130,30 +130,30 @@ schedule_new_timezone <- schedule_new %>%
          end_datetime = lubridate::with_tz(end_datetime, tzone = timezone))
 
 # writing to CSV and RDS files --
-write_csv(schedule_new_timezone, 
+write_csv(schedule_new_timezone,
           here("schedule-files", "schedule_new_localtz.csv"))
-saveRDS(schedule_new_timezone, 
+saveRDS(schedule_new_timezone,
         here("schedule-files", "schedule_new_localtz.Rds"))
-  
+
 
 
 ## -------------------------------------------------------------------------
 # creating a function --
 make_calendar <- function(event) {
   event_subset <- schedule_new_timezone[event, ]
-  
+
   calendar_event <-
   calendar::ic_event(start_time = event_subset$start_datetime,
                      end_time = event_subset$end_datetime,
                      summary = event_subset$event_name)
-  
+
   return(calendar_event)
 }
 
 number_events <- length(schedule_new_timezone$event_name)
 
 # creating ics objects for all events --
-events_all <- map(1:number_events, make_calendar) %>% 
+events_all <- map(1:number_events, make_calendar) %>%
   bind_rows()
 
 # writing to .ics file --
