@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param event
+#'
+#' @return
+#' @export
+#'
+#' @examples
 create_calendar <- function(event) {
   event_subset <- schedule_new_timezone[event, ]
 

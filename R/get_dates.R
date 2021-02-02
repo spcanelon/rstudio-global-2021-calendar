@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param page_number
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_dates <- function(page_number) {
   Sys.sleep(2)
 
